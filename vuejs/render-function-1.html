@@ -1,0 +1,1162 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <title>æ¸²æŸ“å‡½æ•° & JSX â€” Vue.js</title>
+    <meta charset=UTF-8"utf-8">
+    <meta name="description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/render-function.html">
+    <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/render-function.html">
+    <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/render-function.html">
+    <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/render-function.html">
+    <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/render-function.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/render-function.html">
+    <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/render-function.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="æ¸²æŸ“å‡½æ•° & JSX â€” Vue.js">
+    <meta property="og:description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta property="og:image" content="https://cn.vuejs.org//images/logo.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="æ¸²æŸ“å‡½æ•° & JSX â€” Vue.js">
+    <meta name="twitter:description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta name="twitter:image" content="https://cn.vuejs.org/images/logo.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+    <link rel="icon" href="/images/logo.png" type="image/png">
+
+    <meta name="msapplication-TileColor" content="#4fc08d">
+    <meta name="theme-color" content="#4fc08d">
+
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'> -->
+
+    <link href="font-awesome.min.css" tppabs="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- main page styles -->
+    <link rel="stylesheet" href="page.css" tppabs="https://cn.vuejs.org/css/page.css">
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script src="vue.js" tppabs="https://cn.vuejs.org/js/vue.js"></script>
+    <script>window.PAGE_TYPE = "guide"</script>
+
+    <!-- ga -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','analytics.js'/*tpa=https://www.google-analytics.com/analytics.js*/,'ga');
+
+      ga('create', 'UA-46852172-3', 'https://cn.vuejs.org/v2/guide/cn.vuejs.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body class="docs">
+    <div id="mobile-bar" >
+      <a class="menu-button"></a>
+      <a class="logo" href="index.htm" tppabs="https://cn.vuejs.org/"></a>
+    </div>
+    <div id="header">
+  <a id="logo" href="index.htm" tppabs="https://cn.vuejs.org/">
+    <img src="logo.png" tppabs="https://cn.vuejs.org/images/logo.png">
+    <span>Vue.js</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">å­¦ä¹ </a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="index-1.htm" tppabs="https://cn.vuejs.org/v2/guide/" class="nav-link current">æ•™ç¨‹</a></li>
+      <li><a href="index-2.htm" tppabs="https://cn.vuejs.org/v2/api/" class="nav-link">API</a></li>
+      <li><a href="index-3.htm" tppabs="https://cn.vuejs.org/v2/style-guide/" class="nav-link">é£æ ¼æŒ‡å— (beta)</a></li>
+      <li><a href="index-4.htm" tppabs="https://cn.vuejs.org/v2/examples/" class="nav-link">ç¤ºä¾‹</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">ç”Ÿæ€ç³»ç»Ÿ</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>å¸®åŠ©</h4></li>
+    <li><ul>
+      <li><a href="javascript:if(confirm('https://forum.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://forum.vuejs.org/'" tppabs="https://forum.vuejs.org/" class="nav-link" target="_blank">è®ºå›</a></li>
+      <li><a href="javascript:if(confirm('https://chat.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://chat.vuejs.org/'" tppabs="https://chat.vuejs.org/" class="nav-link" target="_blank">èŠå¤©å®¤</a></li>
+    </ul></li>
+    <li><h4>å·¥å…·</h4></li>
+    <li>
+      <ul>
+        <li><a href="javascript:if(confirm('https://github.com/vuejs/vue-devtools  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/vue-devtools'" tppabs="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="javascript:if(confirm('https://vuejs-templates.github.io/webpack  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vuejs-templates.github.io/webpack'" tppabs="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">webpack æ¨¡æ¿</a></li>
+        <li><a href="javascript:if(confirm('https://vue-loader.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vue-loader.vuejs.org/'" tppabs="https://vue-loader.vuejs.org/" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>æ ¸å¿ƒæ’ä»¶</h4></li>
+    <li><ul>
+      <li><a href="javascript:if(confirm('https://router.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://router.vuejs.org/'" tppabs="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="javascript:if(confirm('https://vuex.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vuex.vuejs.org/'" tppabs="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="javascript:if(confirm('https://ssr.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ssr.vuejs.org/'" tppabs="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue æœåŠ¡ç«¯æ¸²æŸ“</a></li>
+    </ul></li>
+    <li><h4>ä¿¡æ¯</h4></li>
+    <li><ul>
+      <li><a href="javascript:if(confirm('https://github.com/vuejs/roadmap  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/roadmap'" tppabs="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="javascript:if(confirm('https://twitter.com/vuejs  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://twitter.com/vuejs'" tppabs="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="javascript:if(confirm('https://medium.com/the-vue-point  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://medium.com/the-vue-point'" tppabs="https://medium.com/the-vue-point" class="nav-link" target="_blank">åšå®¢</a></li>
+      <li><a href="javascript:if(confirm('https://vuejobs.com/?ref=vuejs  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vuejobs.com/?ref=vuejs'" tppabs="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">å·¥ä½œ</a></li>
+    </ul></li>
+    <li><h4>èµ„æºåˆ—è¡¨</h4></li>
+    <li><ul>
+      <li><a href="javascript:if(confirm('https://github.com/vuejs  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs'" tppabs="https://github.com/vuejs" class="nav-link" target="_blank">å®˜æ–¹ä»“åº“</a></li>
+      <li><a href="javascript:if(confirm('https://curated.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://curated.vuejs.org/'" tppabs="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue ä¼˜é€‰</a></li>
+      <li><a href="javascript:if(confirm('https://github.com/vuejs/awesome-vue  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/awesome-vue'" tppabs="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue èµ„æº</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="team.html" tppabs="https://cn.vuejs.org/v2/guide/team.html" class="nav-link team">å›¢é˜Ÿ</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="index-5.htm" tppabs="https://cn.vuejs.org/support-vuejs/" class="nav-link">æ”¯æŒ Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="index-5.htm#One-time-Donations" tppabs="https://cn.vuejs.org/support-vuejs/#One-time-Donations" class="nav-link">ä¸€æ¬¡æ€§èµåŠ©</a></li>
+      <li><a href="index-5.htm#Recurring-Pledges" tppabs="https://cn.vuejs.org/support-vuejs/#Recurring-Pledges" class="nav-link">å‘¨æœŸæ€§èµåŠ©</a></li>
+      <li><a href="javascript:if(confirm('https://vue.threadless.com/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vue.threadless.com/'" tppabs="https://vue.threadless.com/" target="_blank" class="nav-link">T æ¤å•†åº—</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">å¤šè¯­è¨€</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="javascript:if(confirm('https://vuejs.org/v2/guide/render-function.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vuejs.org/v2/guide/render-function.html'" tppabs="https://vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="javascript:if(confirm('https://jp.vuejs.org/v2/guide/render-function.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://jp.vuejs.org/v2/guide/render-function.html'" tppabs="https://jp.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">æ—¥æœ¬èª</a></li>
+    <li><a href="javascript:if(confirm('https://ru.vuejs.org/v2/guide/render-function.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ru.vuejs.org/v2/guide/render-function.html'" tppabs="https://ru.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">Ğ ÑƒÑÑĞºĞ¸Ğ¹</a></li>
+    <li><a href="javascript:if(confirm('https://kr.vuejs.org/v2/guide/render-function.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://kr.vuejs.org/v2/guide/render-function.html'" tppabs="https://kr.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">í•œêµ­ì–´</a></li>
+    <li><a href="javascript:if(confirm('https://br.vuejs.org/v2/guide/render-function.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://br.vuejs.org/v2/guide/render-function.html'" tppabs="https://br.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">PortuguÃªs</a></li>
+    <li><a href="javascript:if(confirm('https://fr.vuejs.org/v2/guide/render-function.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://fr.vuejs.org/v2/guide/render-function.html'" tppabs="https://fr.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">FranÃ§ais</a></li>
+    <li><a href="javascript:if(confirm('https://vi.vuejs.org/v2/guide/render-function.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vi.vuejs.org/v2/guide/render-function.html'" tppabs="https://vi.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">Tiáº¿ng Viá»‡t</a></li>
+  </ul>
+</li>
+
+<li><a href="javascript:if(confirm('https://github.com/vuejs/cn.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/cn.vuejs.org/'" tppabs="https://github.com/vuejs/cn.vuejs.org/" target="_blank" class="nav-link contribute">å‚ä¸ç¿»è¯‘</a></li>
+
+  </ul>
+</div>
+
+    
+      <div id="main" class="fix-sidebar">
+        
+          
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">å­¦ä¹ </a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="index-1.htm" tppabs="https://cn.vuejs.org/v2/guide/" class="nav-link current">æ•™ç¨‹</a></li>
+      <li><a href="index-2.htm" tppabs="https://cn.vuejs.org/v2/api/" class="nav-link">API</a></li>
+      <li><a href="index-3.htm" tppabs="https://cn.vuejs.org/v2/style-guide/" class="nav-link">é£æ ¼æŒ‡å— (beta)</a></li>
+      <li><a href="index-4.htm" tppabs="https://cn.vuejs.org/v2/examples/" class="nav-link">ç¤ºä¾‹</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">ç”Ÿæ€ç³»ç»Ÿ</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>å¸®åŠ©</h4></li>
+    <li><ul>
+      <li><a href="javascript:if(confirm('https://forum.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://forum.vuejs.org/'" tppabs="https://forum.vuejs.org/" class="nav-link" target="_blank">è®ºå›</a></li>
+      <li><a href="javascript:if(confirm('https://chat.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://chat.vuejs.org/'" tppabs="https://chat.vuejs.org/" class="nav-link" target="_blank">èŠå¤©å®¤</a></li>
+    </ul></li>
+    <li><h4>å·¥å…·</h4></li>
+    <li>
+      <ul>
+        <li><a href="javascript:if(confirm('https://github.com/vuejs/vue-devtools  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/vue-devtools'" tppabs="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="javascript:if(confirm('https://vuejs-templates.github.io/webpack  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vuejs-templates.github.io/webpack'" tppabs="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">webpack æ¨¡æ¿</a></li>
+        <li><a href="javascript:if(confirm('https://vue-loader.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vue-loader.vuejs.org/'" tppabs="https://vue-loader.vuejs.org/" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>æ ¸å¿ƒæ’ä»¶</h4></li>
+    <li><ul>
+      <li><a href="javascript:if(confirm('https://router.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://router.vuejs.org/'" tppabs="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="javascript:if(confirm('https://vuex.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vuex.vuejs.org/'" tppabs="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="javascript:if(confirm('https://ssr.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ssr.vuejs.org/'" tppabs="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue æœåŠ¡ç«¯æ¸²æŸ“</a></li>
+    </ul></li>
+    <li><h4>ä¿¡æ¯</h4></li>
+    <li><ul>
+      <li><a href="javascript:if(confirm('https://github.com/vuejs/roadmap  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/roadmap'" tppabs="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="javascript:if(confirm('https://twitter.com/vuejs  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://twitter.com/vuejs'" tppabs="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="javascript:if(confirm('https://medium.com/the-vue-point  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://medium.com/the-vue-point'" tppabs="https://medium.com/the-vue-point" class="nav-link" target="_blank">åšå®¢</a></li>
+      <li><a href="javascript:if(confirm('https://vuejobs.com/?ref=vuejs  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vuejobs.com/?ref=vuejs'" tppabs="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">å·¥ä½œ</a></li>
+    </ul></li>
+    <li><h4>èµ„æºåˆ—è¡¨</h4></li>
+    <li><ul>
+      <li><a href="javascript:if(confirm('https://github.com/vuejs  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs'" tppabs="https://github.com/vuejs" class="nav-link" target="_blank">å®˜æ–¹ä»“åº“</a></li>
+      <li><a href="javascript:if(confirm('https://curated.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://curated.vuejs.org/'" tppabs="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue ä¼˜é€‰</a></li>
+      <li><a href="javascript:if(confirm('https://github.com/vuejs/awesome-vue  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/awesome-vue'" tppabs="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue èµ„æº</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="team.html" tppabs="https://cn.vuejs.org/v2/guide/team.html" class="nav-link team">å›¢é˜Ÿ</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="index-5.htm" tppabs="https://cn.vuejs.org/support-vuejs/" class="nav-link">æ”¯æŒ Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="index-5.htm#One-time-Donations" tppabs="https://cn.vuejs.org/support-vuejs/#One-time-Donations" class="nav-link">ä¸€æ¬¡æ€§èµåŠ©</a></li>
+      <li><a href="index-5.htm#Recurring-Pledges" tppabs="https://cn.vuejs.org/support-vuejs/#Recurring-Pledges" class="nav-link">å‘¨æœŸæ€§èµåŠ©</a></li>
+      <li><a href="javascript:if(confirm('https://vue.threadless.com/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vue.threadless.com/'" tppabs="https://vue.threadless.com/" target="_blank" class="nav-link">T æ¤å•†åº—</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">å¤šè¯­è¨€</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="javascript:if(confirm('https://vuejs.org/v2/guide/render-function.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vuejs.org/v2/guide/render-function.html'" tppabs="https://vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="javascript:if(confirm('https://jp.vuejs.org/v2/guide/render-function.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://jp.vuejs.org/v2/guide/render-function.html'" tppabs="https://jp.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">æ—¥æœ¬èª</a></li>
+    <li><a href="javascript:if(confirm('https://ru.vuejs.org/v2/guide/render-function.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ru.vuejs.org/v2/guide/render-function.html'" tppabs="https://ru.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">Ğ ÑƒÑÑĞºĞ¸Ğ¹</a></li>
+    <li><a href="javascript:if(confirm('https://kr.vuejs.org/v2/guide/render-function.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://kr.vuejs.org/v2/guide/render-function.html'" tppabs="https://kr.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">í•œêµ­ì–´</a></li>
+    <li><a href="javascript:if(confirm('https://br.vuejs.org/v2/guide/render-function.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://br.vuejs.org/v2/guide/render-function.html'" tppabs="https://br.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">PortuguÃªs</a></li>
+    <li><a href="javascript:if(confirm('https://fr.vuejs.org/v2/guide/render-function.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://fr.vuejs.org/v2/guide/render-function.html'" tppabs="https://fr.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">FranÃ§ais</a></li>
+    <li><a href="javascript:if(confirm('https://vi.vuejs.org/v2/guide/render-function.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vi.vuejs.org/v2/guide/render-function.html'" tppabs="https://vi.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">Tiáº¿ng Viá»‡t</a></li>
+  </ul>
+</li>
+
+<li><a href="javascript:if(confirm('https://github.com/vuejs/cn.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/cn.vuejs.org/'" tppabs="https://github.com/vuejs/cn.vuejs.org/" target="_blank" class="nav-link contribute">å‚ä¸ç¿»è¯‘</a></li>
+
+    </ul>
+    <div class="list">
+      <div class="main-sponsor">
+        <span>èµåŠ©è€…</span><br>
+        <a id="main-sponsor-link" target="_blank" style="display: block; margin: 6px 0;">
+          <img id="main-sponsor-image" style="border-radius: 3px;">
+        </a>
+        <script>
+        (function () {
+          var API = 'https://xiaozhuanlan.com/example/baner_settings'
+          var req = new XMLHttpRequest()
+          var data = {
+            "link_url": "https://xiaozhuanlan.com",
+            "img_url": "https://diycode.b0.upaiyun.com/photo/2017/15ebaae7745e70876cf20c0ee93bdc9e.png"
+          }
+          req.onreadystatechange = function () {
+            if (req.readyState == 4) {
+            if (req.status >= 200 && req.status < 300) {
+              try {
+                data = JSON.parse(req.responseText)
+              } catch (e) {}
+            }
+            document.getElementById('main-sponsor-link').href = data.link_url
+            document.getElementById('main-sponsor-image').src = data.img_url
+            }
+          }
+          req.open('GET', API)
+          req.send()
+        })()
+        </script>
+      </div>
+      <a class="become-backer" href="index-5.htm" tppabs="https://cn.vuejs.org/support-vuejs">
+        æˆä¸ºèµåŠ©è€…
+      </a>
+      <h2>
+        
+        æ•™ç¨‹
+        
+          <select class="version-select">
+            <option value="SELF" selected>2.x</option>
+            <option value="v1">1.0</option>
+          </select>
+        
+      </h2>
+      <ul class="menu-root">
+  
+    
+    
+      
+        <li><h3>åŸºç¡€</h3></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="installation-1.html" tppabs="https://cn.vuejs.org/v2/guide/installation.html" class="sidebar-link">å®‰è£…</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="index-37.html" tppabs="https://cn.vuejs.org/v2/guide/index.html" class="sidebar-link">ä»‹ç»</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="instance-1.html" tppabs="https://cn.vuejs.org/v2/guide/instance.html" class="sidebar-link">Vue å®ä¾‹</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="syntax-1.html" tppabs="https://cn.vuejs.org/v2/guide/syntax.html" class="sidebar-link">æ¨¡æ¿è¯­æ³•</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="computed-1.html" tppabs="https://cn.vuejs.org/v2/guide/computed.html" class="sidebar-link">è®¡ç®—å±æ€§å’Œè§‚å¯Ÿè€…</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="class-and-style-1.html" tppabs="https://cn.vuejs.org/v2/guide/class-and-style.html" class="sidebar-link">Class ä¸ Style ç»‘å®š</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="conditional-1.html" tppabs="https://cn.vuejs.org/v2/guide/conditional.html" class="sidebar-link">æ¡ä»¶æ¸²æŸ“</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="list-1.html" tppabs="https://cn.vuejs.org/v2/guide/list.html" class="sidebar-link">åˆ—è¡¨æ¸²æŸ“</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="events-1.html" tppabs="https://cn.vuejs.org/v2/guide/events.html" class="sidebar-link">äº‹ä»¶å¤„ç†</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="forms-1.html" tppabs="https://cn.vuejs.org/v2/guide/forms.html" class="sidebar-link">è¡¨å•è¾“å…¥ç»‘å®š</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="components-1.html" tppabs="https://cn.vuejs.org/v2/guide/components.html" class="sidebar-link">ç»„ä»¶</a>
+    </li>
+  
+    
+    
+      
+      
+        <li><h3>è¿‡æ¸¡ & åŠ¨ç”»</h3></li>
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="transitions-1.html" tppabs="https://cn.vuejs.org/v2/guide/transitions.html" class="sidebar-link">è¿›å…¥/ç¦»å¼€ & åˆ—è¡¨è¿‡æ¸¡</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="transitioning-state-1.html" tppabs="https://cn.vuejs.org/v2/guide/transitioning-state.html" class="sidebar-link">çŠ¶æ€è¿‡æ¸¡</a>
+    </li>
+  
+    
+    
+      
+      
+      
+        <li><h3>å¯å¤ç”¨æ€§ & ç»„åˆ</h3></li>
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="javascript:if(confirm('https://cn.vuejs.org/v2/guide/mixins.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://cn.vuejs.org/v2/guide/mixins.html'" tppabs="https://cn.vuejs.org/v2/guide/mixins.html" class="sidebar-link">æ··åˆ</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="custom-directive-1.html" tppabs="https://cn.vuejs.org/v2/guide/custom-directive.html" class="sidebar-link">è‡ªå®šä¹‰æŒ‡ä»¤</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="render-function-1.html" tppabs="https://cn.vuejs.org/v2/guide/render-function.html" class="sidebar-link current">æ¸²æŸ“å‡½æ•° & JSX</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="plugins-1.html" tppabs="https://cn.vuejs.org/v2/guide/plugins.html" class="sidebar-link">æ’ä»¶</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="filters.html" tppabs="https://cn.vuejs.org/v2/guide/filters.html" class="sidebar-link">è¿‡æ»¤å™¨</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+        <li><h3>å·¥å…·</h3></li>
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="deployment-1.html" tppabs="https://cn.vuejs.org/v2/guide/deployment.html" class="sidebar-link">ç”Ÿäº§ç¯å¢ƒéƒ¨ç½²</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="single-file-components-1.html" tppabs="https://cn.vuejs.org/v2/guide/single-file-components.html" class="sidebar-link">å•æ–‡ä»¶ç»„ä»¶</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="unit-testing-1.html" tppabs="https://cn.vuejs.org/v2/guide/unit-testing.html" class="sidebar-link">å•å…ƒæµ‹è¯•</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="typescript.html" tppabs="https://cn.vuejs.org/v2/guide/typescript.html" class="sidebar-link">TypeScript æ”¯æŒ</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+        <li><h3>è§„æ¨¡åŒ–</h3></li>
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="routing-1.html" tppabs="https://cn.vuejs.org/v2/guide/routing.html" class="sidebar-link">è·¯ç”±</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="state-management-1.html" tppabs="https://cn.vuejs.org/v2/guide/state-management.html" class="sidebar-link">çŠ¶æ€ç®¡ç†</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="ssr-1.html" tppabs="https://cn.vuejs.org/v2/guide/ssr.html" class="sidebar-link">æœåŠ¡ç«¯æ¸²æŸ“</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+        <li><h3>å†…åœ¨</h3></li>
+      
+      
+      
+    
+    
+    <li>
+      <a href="reactivity-1.html" tppabs="https://cn.vuejs.org/v2/guide/reactivity.html" class="sidebar-link">æ·±å…¥å“åº”å¼åŸç†</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>è¿ç§»</h3></li>
+      
+      
+    
+    
+    <li>
+      <a href="migration-1.html" tppabs="https://cn.vuejs.org/v2/guide/migration.html" class="sidebar-link">ä» Vue 1.x è¿ç§»</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="migration-vue-router-1.html" tppabs="https://cn.vuejs.org/v2/guide/migration-vue-router.html" class="sidebar-link">ä» Vue Router 0.7.x è¿ç§»</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="migration-vuex-1.html" tppabs="https://cn.vuejs.org/v2/guide/migration-vuex.html" class="sidebar-link">ä» Vuex 0.6.x è¿ç§»åˆ° 1.0</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>æ›´å¤š</h3></li>
+      
+    
+    
+    <li>
+      <a href="comparison-1.html" tppabs="https://cn.vuejs.org/v2/guide/comparison.html" class="sidebar-link">å¯¹æ¯”å…¶ä»–æ¡†æ¶</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="join-1.html" tppabs="https://cn.vuejs.org/v2/guide/join.html" class="sidebar-link">åŠ å…¥ Vue.js ç¤¾åŒº</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="team.html" tppabs="https://cn.vuejs.org/v2/guide/team.html" class="sidebar-link">è®¤è¯†å›¢é˜Ÿ</a>
+    </li>
+  
+  
+</ul>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="content guide with-sidebar render-function-guide">
+  
+    
+      <div id="ad">
+  <a href="javascript:if(confirm('https://time.geekbang.org/column/intro/48?utm_source=website&utm_medium=vue&utm_campaign=201801chenhao&utm_content=chenhaobanner  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://time.geekbang.org/column/intro/48?utm_source=website&utm_medium=vue&utm_campaign=201801chenhao&utm_content=chenhaobanner'" tppabs="https://time.geekbang.org/column/intro/48?utm_source=website&utm_medium=vue&utm_campaign=201801chenhao&utm_content=chenhaobanner" target="_blank" rel="nofollow">
+    <img src="geekbang3.gif" tppabs="https://cn.vuejs.org/images/geekbang3.gif" alt="æå®¢æ—¶é—´">
+  </a>
+</div>
+
+    
+  
+  
+    <h1>æ¸²æŸ“å‡½æ•° & JSX</h1>
+  
+  
+    <h2 id="åŸºç¡€"><a href="#åŸºç¡€" class="headerlink" title="åŸºç¡€"></a>åŸºç¡€</h2><p>Vue æ¨èåœ¨ç»å¤§å¤šæ•°æƒ…å†µä¸‹ä½¿ç”¨ template æ¥åˆ›å»ºä½ çš„ HTMLã€‚ç„¶è€Œåœ¨ä¸€äº›åœºæ™¯ä¸­ï¼Œä½ çœŸçš„éœ€è¦ JavaScript çš„å®Œå…¨ç¼–ç¨‹çš„èƒ½åŠ›ï¼Œè¿™å°±æ˜¯ <strong>render å‡½æ•°</strong>ï¼Œå®ƒæ¯” template æ›´æ¥è¿‘ç¼–è¯‘å™¨ã€‚</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">name</span>=<span class="string">"hello-world"</span> <span class="attr">href</span>=<span class="string">"#hello-world"</span>&gt;</span></span><br><span class="line">    Hello world!</span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>åœ¨ HTML å±‚ï¼Œæˆ‘ä»¬å†³å®šè¿™æ ·å®šä¹‰ç»„ä»¶æ¥å£ï¼š</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">anchored-heading</span> <span class="attr">:level</span>=<span class="string">"1"</span>&gt;</span>Hello world!<span class="tag">&lt;/<span class="name">anchored-heading</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>å½“æˆ‘ä»¬å¼€å§‹å†™ä¸€ä¸ªé€šè¿‡ <code>level</code> prop åŠ¨æ€ç”Ÿæˆ heading æ ‡ç­¾çš„ç»„ä»¶ï¼Œä½ å¯èƒ½å¾ˆå¿«æƒ³åˆ°è¿™æ ·å®ç°ï¼š</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/x-template"</span> <span class="attr">id</span>=<span class="string">"anchored-heading-template"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  &lt;h1 v-<span class="keyword">if</span>=<span class="string">"level === 1"</span>&gt;</span></span><br><span class="line"><span class="javascript">    &lt;slot&gt;<span class="xml"><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="javascript">  &lt;h2 v-<span class="keyword">else</span>-<span class="keyword">if</span>=<span class="string">"level === 2"</span>&gt;</span></span><br><span class="line"><span class="javascript">    &lt;slot&gt;<span class="xml"><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="javascript">  &lt;h3 v-<span class="keyword">else</span>-<span class="keyword">if</span>=<span class="string">"level === 3"</span>&gt;</span></span><br><span class="line"><span class="javascript">    &lt;slot&gt;<span class="xml"><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line"><span class="javascript">  &lt;h4 v-<span class="keyword">else</span>-<span class="keyword">if</span>=<span class="string">"level === 4"</span>&gt;</span></span><br><span class="line"><span class="javascript">    &lt;slot&gt;<span class="xml"><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="javascript">  &lt;h5 v-<span class="keyword">else</span>-<span class="keyword">if</span>=<span class="string">"level === 5"</span>&gt;</span></span><br><span class="line"><span class="javascript">    &lt;slot&gt;<span class="xml"><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span></span><br><span class="line"><span class="javascript">  &lt;h6 v-<span class="keyword">else</span>-<span class="keyword">if</span>=<span class="string">"level === 6"</span>&gt;</span></span><br><span class="line"><span class="javascript">    &lt;slot&gt;<span class="xml"><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'anchored-heading'</span>, &#123;</span><br><span class="line">  template: <span class="string">'#anchored-heading-template'</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    level: &#123;</span><br><span class="line">      type: <span class="built_in">Number</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>åœ¨è¿™ç§åœºæ™¯ä¸­ä½¿ç”¨ template å¹¶ä¸æ˜¯æœ€å¥½çš„é€‰æ‹©ï¼šé¦–å…ˆä»£ç å†—é•¿ï¼Œä¸ºäº†åœ¨ä¸åŒçº§åˆ«çš„æ ‡é¢˜ä¸­æ’å…¥é”šç‚¹å…ƒç´ ï¼Œæˆ‘ä»¬éœ€è¦é‡å¤åœ°ä½¿ç”¨ <code>&lt;slot&gt;&lt;/slot&gt;</code>ã€‚</p>
+<p>è™½ç„¶æ¨¡æ¿åœ¨å¤§å¤šæ•°ç»„ä»¶ä¸­éƒ½éå¸¸å¥½ç”¨ï¼Œä½†æ˜¯åœ¨è¿™é‡Œå®ƒå°±ä¸æ˜¯å¾ˆç®€æ´çš„äº†ã€‚é‚£ä¹ˆï¼Œæˆ‘ä»¬æ¥å°è¯•ä½¿ç”¨ <code>render</code> å‡½æ•°é‡å†™ä¸Šé¢çš„ä¾‹å­ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'anchored-heading'</span>, &#123;</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> createElement(</span><br><span class="line">      <span class="string">'h'</span> + <span class="keyword">this</span>.level,   <span class="comment">// tag name æ ‡ç­¾åç§°</span></span><br><span class="line">      <span class="keyword">this</span>.$slots.default <span class="comment">// å­ç»„ä»¶ä¸­çš„é˜µåˆ—</span></span><br><span class="line">    )</span><br><span class="line">  &#125;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    level: &#123;</span><br><span class="line">      type: <span class="built_in">Number</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>ç®€å•æ¸…æ™°å¾ˆå¤šï¼ç®€å•æ¥è¯´ï¼Œè¿™æ ·ä»£ç ç²¾ç®€å¾ˆå¤šï¼Œä½†æ˜¯éœ€è¦éå¸¸ç†Ÿæ‚‰ Vue çš„å®ä¾‹å±æ€§ã€‚åœ¨è¿™ä¸ªä¾‹å­ä¸­ï¼Œä½ éœ€è¦çŸ¥é“å½“ä½ ä¸ä½¿ç”¨ <code>slot</code> å±æ€§å‘ç»„ä»¶ä¸­ä¼ é€’å†…å®¹æ—¶ï¼Œæ¯”å¦‚ <code>anchored-heading</code> ä¸­çš„ <code>Hello world!</code>ï¼Œè¿™äº›å­å…ƒç´ è¢«å­˜å‚¨åœ¨ç»„ä»¶å®ä¾‹ä¸­çš„ <code>$slots.default</code>ä¸­ã€‚å¦‚æœä½ è¿˜ä¸äº†è§£ï¼Œ<strong> åœ¨æ·±å…¥ render å‡½æ•°ä¹‹å‰æ¨èé˜…è¯» <a href="index-2.htm#å®ä¾‹å±æ€§" tppabs="https://cn.vuejs.org/v2/api/#å®ä¾‹å±æ€§">å®ä¾‹å±æ€§ API</a>ã€‚</strong></p>
+<h2 id="èŠ‚ç‚¹ã€æ ‘ä»¥åŠè™šæ‹Ÿ-DOM"><a href="#èŠ‚ç‚¹ã€æ ‘ä»¥åŠè™šæ‹Ÿ-DOM" class="headerlink" title="èŠ‚ç‚¹ã€æ ‘ä»¥åŠè™šæ‹Ÿ DOM"></a>èŠ‚ç‚¹ã€æ ‘ä»¥åŠè™šæ‹Ÿ DOM</h2><p>åœ¨æ·±å…¥æ¸²æŸ“å‡½æ•°ä¹‹å‰ï¼Œäº†è§£ä¸€äº›æµè§ˆå™¨çš„å·¥ä½œåŸç†æ˜¯å¾ˆé‡è¦çš„ã€‚ä»¥ä¸‹é¢è¿™æ®µ HTML ä¸ºä¾‹ï¼š</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>My title<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  Some text content</span><br><span class="line">  <span class="comment">&lt;!-- <span class="doctag">TODO:</span> Add tagline --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>å½“æµè§ˆå™¨è¯»åˆ°è¿™äº›ä»£ç æ—¶ï¼Œå®ƒä¼šå»ºç«‹ä¸€ä¸ª<a href="javascript:if(confirm('https://javascript.info/dom-nodes  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://javascript.info/dom-nodes'" tppabs="https://javascript.info/dom-nodes" target="_blank" rel="noopener">â€œDOM èŠ‚ç‚¹â€æ ‘</a>æ¥ä¿æŒè¿½è¸ªï¼Œå¦‚åŒä½ ä¼šç”»ä¸€å¼ å®¶è°±æ ‘æ¥è¿½è¸ªå®¶åº­æˆå‘˜çš„å‘å±•ä¸€æ ·ã€‚</p>
+<p>HTML çš„ DOM èŠ‚ç‚¹æ ‘å¦‚ä¸‹å›¾æ‰€ç¤ºï¼š</p>
+<p><img src="dom-tree.png" tppabs="https://cn.vuejs.org/images/dom-tree.png" alt="DOM Tree Visualization"></p>
+<p>æ¯ä¸ªå…ƒç´ éƒ½æ˜¯ä¸€ä¸ªèŠ‚ç‚¹ã€‚æ¯ç‰‡æ–‡å­—ä¹Ÿæ˜¯ä¸€ä¸ªèŠ‚ç‚¹ã€‚ç”šè‡³æ³¨é‡Šä¹Ÿéƒ½æ˜¯èŠ‚ç‚¹ã€‚ä¸€ä¸ªèŠ‚ç‚¹å°±æ˜¯é¡µé¢çš„ä¸€ä¸ªéƒ¨åˆ†ã€‚å°±åƒå®¶è°±æ ‘ä¸€æ ·ï¼Œæ¯ä¸ªèŠ‚ç‚¹éƒ½å¯ä»¥æœ‰å­©å­èŠ‚ç‚¹ (ä¹Ÿå°±æ˜¯è¯´æ¯ä¸ªéƒ¨åˆ†å¯ä»¥åŒ…å«å…¶å®ƒçš„ä¸€äº›éƒ¨åˆ†)ã€‚</p>
+<p>é«˜æ•ˆçš„æ›´æ–°æ‰€æœ‰è¿™äº›èŠ‚ç‚¹ä¼šæ˜¯æ¯”è¾ƒå›°éš¾çš„ï¼Œä¸è¿‡æ‰€å¹¸ä½ ä¸å¿…å†æ‰‹åŠ¨å®Œæˆè¿™ä¸ªå·¥ä½œäº†ã€‚ä½ åªéœ€è¦å‘Šè¯‰ Vue ä½ å¸Œæœ›é¡µé¢ä¸Šçš„ HTML æ˜¯ä»€ä¹ˆï¼Œè¿™å¯ä»¥æ˜¯åœ¨ä¸€ä¸ªæ¨¡æ¿é‡Œï¼š</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123; blogTitle &#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>æˆ–è€…ä¸€ä¸ªæ¸²æŸ“å‡½æ•°é‡Œï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> createElement(<span class="string">'h1'</span>, <span class="keyword">this</span>.blogTitle)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>åœ¨è¿™ä¸¤ç§æƒ…å†µä¸‹ï¼ŒVue éƒ½ä¼šè‡ªåŠ¨ä¿æŒé¡µé¢çš„æ›´æ–°ï¼Œå³ä¾¿ <code>blogTitle</code> å‘ç”Ÿäº†æ”¹å˜ã€‚</p>
+<h3 id="è™šæ‹Ÿ-DOM"><a href="#è™šæ‹Ÿ-DOM" class="headerlink" title="è™šæ‹Ÿ DOM"></a>è™šæ‹Ÿ DOM</h3><p>Vue é€šè¿‡å»ºç«‹ä¸€ä¸ª<strong>è™šæ‹Ÿ DOM</strong> å¯¹çœŸå® DOM å‘ç”Ÿçš„å˜åŒ–ä¿æŒè¿½è¸ªã€‚è¯·è¿‘è·ç¦»çœ‹ä¸€ä¸‹è¿™è¡Œä»£ç ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> createElement(<span class="string">'h1'</span>, <span class="keyword">this</span>.blogTitle)</span><br></pre></td></tr></table></figure>
+<p><code>createElement</code> åˆ°åº•ä¼šè¿”å›ä»€ä¹ˆå‘¢ï¼Ÿå…¶å®ä¸æ˜¯ä¸€ä¸ª<em>å®é™…çš„</em> DOM å…ƒç´ ã€‚å®ƒæ›´å‡†ç¡®çš„åå­—å¯èƒ½æ˜¯ <code>createNodeDescription</code>ï¼Œå› ä¸ºå®ƒæ‰€åŒ…å«çš„ä¿¡æ¯ä¼šå‘Šè¯‰ Vue é¡µé¢ä¸Šéœ€è¦æ¸²æŸ“ä»€ä¹ˆæ ·çš„èŠ‚ç‚¹ï¼ŒåŠå…¶å­èŠ‚ç‚¹ã€‚æˆ‘ä»¬æŠŠè¿™æ ·çš„èŠ‚ç‚¹æè¿°ä¸ºâ€œè™šæ‹ŸèŠ‚ç‚¹ (Virtual Node)â€ï¼Œä¹Ÿå¸¸ç®€å†™å®ƒä¸ºâ€œVNodeâ€ã€‚â€œè™šæ‹Ÿ DOMâ€æ˜¯æˆ‘ä»¬å¯¹ç”± Vue ç»„ä»¶æ ‘å»ºç«‹èµ·æ¥çš„æ•´ä¸ª VNode æ ‘çš„ç§°å‘¼ã€‚</p>
+<h2 id="createElement-å‚æ•°"><a href="#createElement-å‚æ•°" class="headerlink" title="createElement å‚æ•°"></a><code>createElement</code> å‚æ•°</h2><p>æ¥ä¸‹æ¥ä½ éœ€è¦ç†Ÿæ‚‰çš„æ˜¯å¦‚ä½•åœ¨ <code>createElement</code> å‡½æ•°ä¸­ç”Ÿæˆæ¨¡æ¿ã€‚è¿™é‡Œæ˜¯ <code>createElement</code> æ¥å—çš„å‚æ•°ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// @returns &#123;VNode&#125;</span></span><br><span class="line">createElement(</span><br><span class="line">  <span class="comment">// &#123;String | Object | Function&#125;</span></span><br><span class="line"> Â <span class="comment">// ä¸€ä¸ª HTML æ ‡ç­¾å­—ç¬¦ä¸²ï¼Œç»„ä»¶é€‰é¡¹å¯¹è±¡ï¼Œæˆ–è€…ä¸€ä¸ªè¿”å›å€¼</span></span><br><span class="line">  <span class="comment">// ç±»å‹ä¸º String/Object çš„å‡½æ•°ï¼Œå¿…è¦å‚æ•°</span></span><br><span class="line"> Â <span class="string">'div'</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// &#123;Object&#125;</span></span><br><span class="line"> Â <span class="comment">// ä¸€ä¸ªåŒ…å«æ¨¡æ¿ç›¸å…³å±æ€§çš„æ•°æ®å¯¹è±¡</span></span><br><span class="line"> Â <span class="comment">// è¿™æ ·ï¼Œæ‚¨å¯ä»¥åœ¨ template ä¸­ä½¿ç”¨è¿™äº›å±æ€§ã€‚å¯é€‰å‚æ•°ã€‚</span></span><br><span class="line">  &#123;</span><br><span class="line"> Â  Â <span class="comment">// (è¯¦æƒ…è§ä¸‹ä¸€èŠ‚)</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// &#123;String | Array&#125;</span></span><br><span class="line"> Â <span class="comment">// å­èŠ‚ç‚¹ (VNodes)ï¼Œç”± `createElement()` æ„å»ºè€Œæˆï¼Œ</span></span><br><span class="line">  <span class="comment">// æˆ–ä½¿ç”¨å­—ç¬¦ä¸²æ¥ç”Ÿæˆâ€œæ–‡æœ¬èŠ‚ç‚¹â€ã€‚å¯é€‰å‚æ•°ã€‚</span></span><br><span class="line">  [</span><br><span class="line">    <span class="string">'å…ˆå†™ä¸€äº›æ–‡å­—'</span>,</span><br><span class="line">    createElement(<span class="string">'h1'</span>, <span class="string">'ä¸€åˆ™å¤´æ¡'</span>),</span><br><span class="line">    createElement(MyComponent, &#123;</span><br><span class="line">      props: &#123;</span><br><span class="line">        someProp: <span class="string">'foobar'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="æ·±å…¥-data-å¯¹è±¡"><a href="#æ·±å…¥-data-å¯¹è±¡" class="headerlink" title="æ·±å…¥ data å¯¹è±¡"></a>æ·±å…¥ data å¯¹è±¡</h3><p>æœ‰ä¸€ä»¶äº‹è¦æ³¨æ„ï¼šæ­£å¦‚åœ¨æ¨¡æ¿è¯­æ³•ä¸­ï¼Œ<code>v-bind:class</code> å’Œ <code>v-bind:style</code> ï¼Œä¼šè¢«ç‰¹åˆ«å¯¹å¾…ä¸€æ ·ï¼Œåœ¨ VNode æ•°æ®å¯¹è±¡ä¸­ï¼Œä¸‹åˆ—å±æ€§åæ˜¯çº§åˆ«æœ€é«˜çš„å­—æ®µã€‚è¯¥å¯¹è±¡ä¹Ÿå…è®¸ä½ ç»‘å®šæ™®é€šçš„ HTML ç‰¹æ€§ï¼Œå°±åƒ DOM å±æ€§ä¸€æ ·ï¼Œæ¯”å¦‚ <code>innerHTML</code> (è¿™ä¼šå–ä»£ <code>v-html</code> æŒ‡ä»¤)ã€‚</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// å’Œ`v-bind:class`ä¸€æ ·çš„ API</span></span><br><span class="line">  <span class="string">'class'</span>: &#123;</span><br><span class="line">    foo: <span class="literal">true</span>,</span><br><span class="line">    bar: <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// å’Œ`v-bind:style`ä¸€æ ·çš„ API</span></span><br><span class="line">  style: &#123;</span><br><span class="line">    color: <span class="string">'red'</span>,</span><br><span class="line">    fontSize: <span class="string">'14px'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// æ­£å¸¸çš„ HTML ç‰¹æ€§</span></span><br><span class="line">  attrs: &#123;</span><br><span class="line">    id: <span class="string">'foo'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// ç»„ä»¶ props</span></span><br><span class="line">  props: &#123;</span><br><span class="line">    myProp: <span class="string">'bar'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// DOM å±æ€§</span></span><br><span class="line">  domProps: &#123;</span><br><span class="line">    innerHTML: <span class="string">'baz'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// äº‹ä»¶ç›‘å¬å™¨åŸºäº `on`</span></span><br><span class="line">  <span class="comment">// æ‰€ä»¥ä¸å†æ”¯æŒå¦‚ `v-on:keyup.enter` ä¿®é¥°å™¨</span></span><br><span class="line">  <span class="comment">// éœ€è¦æ‰‹åŠ¨åŒ¹é… keyCodeã€‚</span></span><br><span class="line">  on: &#123;</span><br><span class="line">    click: <span class="keyword">this</span>.clickHandler</span><br><span class="line">  &#125;,</span><br><span class="line"> Â <span class="comment">// ä»…å¯¹äºç»„ä»¶ï¼Œç”¨äºç›‘å¬åŸç”Ÿäº‹ä»¶ï¼Œè€Œä¸æ˜¯ç»„ä»¶å†…éƒ¨ä½¿ç”¨</span></span><br><span class="line">  <span class="comment">// `vm.$emit` è§¦å‘çš„äº‹ä»¶ã€‚</span></span><br><span class="line">  nativeOn: &#123;</span><br><span class="line">    click: <span class="keyword">this</span>.nativeClickHandler</span><br><span class="line">  &#125;,</span><br><span class="line"> Â <span class="comment">// è‡ªå®šä¹‰æŒ‡ä»¤ã€‚æ³¨æ„ï¼Œä½ æ— æ³•å¯¹ `binding` ä¸­çš„ `oldValue`</span></span><br><span class="line">  <span class="comment">// èµ‹å€¼ï¼Œå› ä¸º Vue å·²ç»è‡ªåŠ¨ä¸ºä½ è¿›è¡Œäº†åŒæ­¥ã€‚</span></span><br><span class="line"> Â directives: [</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">'my-custom-directive'</span>,</span><br><span class="line">      value: <span class="string">'2'</span>,</span><br><span class="line">      expression: <span class="string">'1 + 1'</span>,</span><br><span class="line">      arg: <span class="string">'foo'</span>,</span><br><span class="line">      modifiers: &#123;</span><br><span class="line">        bar: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="comment">// Scoped slots in the form of</span></span><br><span class="line">  <span class="comment">// &#123; name: props =&gt; VNode | Array&lt;VNode&gt; &#125;</span></span><br><span class="line">  scopedSlots: &#123;</span><br><span class="line">    <span class="keyword">default</span>: <span class="function"><span class="params">props</span> =&gt;</span> createElement(<span class="string">'span'</span>, props.text)</span><br><span class="line">  &#125;,</span><br><span class="line"> Â <span class="comment">// å¦‚æœç»„ä»¶æ˜¯å…¶ä»–ç»„ä»¶çš„å­ç»„ä»¶ï¼Œéœ€ä¸ºæ’æ§½æŒ‡å®šåç§°</span></span><br><span class="line"> Â slot: <span class="string">'name-of-slot'</span>,</span><br><span class="line">  <span class="comment">// å…¶ä»–ç‰¹æ®Šé¡¶å±‚å±æ€§</span></span><br><span class="line">  key: <span class="string">'myKey'</span>,</span><br><span class="line">  ref: <span class="string">'myRef'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="å®Œæ•´ç¤ºä¾‹"><a href="#å®Œæ•´ç¤ºä¾‹" class="headerlink" title="å®Œæ•´ç¤ºä¾‹"></a>å®Œæ•´ç¤ºä¾‹</h3><p>æœ‰äº†è¿™äº›çŸ¥è¯†ï¼Œæˆ‘ä»¬ç°åœ¨å¯ä»¥å®Œæˆæˆ‘ä»¬æœ€å¼€å§‹æƒ³å®ç°çš„ç»„ä»¶ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> getChildrenTextContent = <span class="function"><span class="keyword">function</span> (<span class="params">children</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> children.map(<span class="function"><span class="keyword">function</span> (<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> node.children</span><br><span class="line">      ? getChildrenTextContent(node.children)</span><br><span class="line">      : node.text</span><br><span class="line">  &#125;).join(<span class="string">''</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Vue.component(<span class="string">'anchored-heading'</span>, &#123;</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// create kebabCase id</span></span><br><span class="line">    <span class="keyword">var</span> headingId = getChildrenTextContent(<span class="keyword">this</span>.$slots.default)</span><br><span class="line">      .toLowerCase()</span><br><span class="line">      .replace(<span class="regexp">/\W+/g</span>, <span class="string">'-'</span>)</span><br><span class="line">      .replace(<span class="regexp">/(^\-|\-$)/g</span>, <span class="string">''</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> createElement(</span><br><span class="line">      <span class="string">'h'</span> + <span class="keyword">this</span>.level,</span><br><span class="line">      [</span><br><span class="line">        createElement(<span class="string">'a'</span>, &#123;</span><br><span class="line">          attrs: &#123;</span><br><span class="line">            name: headingId,</span><br><span class="line">            href: <span class="string">'#'</span> + headingId</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;, <span class="keyword">this</span>.$slots.default)</span><br><span class="line">      ]</span><br><span class="line">    )</span><br><span class="line">  &#125;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    level: &#123;</span><br><span class="line">      type: <span class="built_in">Number</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="çº¦æŸ"><a href="#çº¦æŸ" class="headerlink" title="çº¦æŸ"></a>çº¦æŸ</h3><h4 id="VNodes-å¿…é¡»å”¯ä¸€"><a href="#VNodes-å¿…é¡»å”¯ä¸€" class="headerlink" title="VNodes å¿…é¡»å”¯ä¸€"></a>VNodes å¿…é¡»å”¯ä¸€</h4><p>ç»„ä»¶æ ‘ä¸­çš„æ‰€æœ‰ VNodes å¿…é¡»æ˜¯å”¯ä¸€çš„ã€‚è¿™æ„å‘³ç€ï¼Œä¸‹é¢çš„ render function æ˜¯æ— æ•ˆçš„ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> myParagraphVNode = createElement(<span class="string">'p'</span>, <span class="string">'hi'</span>)</span><br><span class="line">  <span class="keyword">return</span> createElement(<span class="string">'div'</span>, [</span><br><span class="line"> Â  Â <span class="comment">// é”™è¯¯-é‡å¤çš„ VNodes</span></span><br><span class="line"> Â  Â myParagraphVNode, myParagraphVNode</span><br><span class="line">  ])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>å¦‚æœä½ çœŸçš„éœ€è¦é‡å¤å¾ˆå¤šæ¬¡çš„å…ƒç´ /ç»„ä»¶ï¼Œä½ å¯ä»¥ä½¿ç”¨å·¥å‚å‡½æ•°æ¥å®ç°ã€‚ä¾‹å¦‚ï¼Œä¸‹é¢è¿™ä¸ªä¾‹å­ render å‡½æ•°å®Œç¾æœ‰æ•ˆåœ°æ¸²æŸ“äº† 20 ä¸ªé‡å¤çš„æ®µè½ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> createElement(<span class="string">'div'</span>,</span><br><span class="line">    <span class="built_in">Array</span>.apply(<span class="literal">null</span>, &#123; <span class="attr">length</span>: <span class="number">20</span> &#125;).map(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> createElement(<span class="string">'p'</span>, <span class="string">'hi'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="ä½¿ç”¨-JavaScript-ä»£æ›¿æ¨¡æ¿åŠŸèƒ½"><a href="#ä½¿ç”¨-JavaScript-ä»£æ›¿æ¨¡æ¿åŠŸèƒ½" class="headerlink" title="ä½¿ç”¨ JavaScript ä»£æ›¿æ¨¡æ¿åŠŸèƒ½"></a>ä½¿ç”¨ JavaScript ä»£æ›¿æ¨¡æ¿åŠŸèƒ½</h2><h3 id="v-if-å’Œ-v-for"><a href="#v-if-å’Œ-v-for" class="headerlink" title="v-if å’Œ v-for"></a><code>v-if</code> å’Œ <code>v-for</code></h3><p>ç”±äºä½¿ç”¨åŸç”Ÿçš„ JavaScript æ¥å®ç°æŸäº›ä¸œè¥¿å¾ˆç®€å•ï¼ŒVue çš„ render å‡½æ•°æ²¡æœ‰æä¾›ä¸“ç”¨çš„ APIã€‚æ¯”å¦‚ï¼Œtemplate ä¸­çš„ <code>v-if</code> å’Œ <code>v-for</code>ï¼š</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">v-if</span>=<span class="string">"items.length"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span>&#123;&#123; item.name &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-else</span>&gt;</span>No items found.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>è¿™äº›éƒ½ä¼šåœ¨ render å‡½æ•°ä¸­è¢« JavaScript çš„ <code>if</code>/<code>else</code> å’Œ <code>map</code> é‡å†™ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.items.length) &#123;</span><br><span class="line">    <span class="keyword">return</span> createElement(<span class="string">'ul'</span>, <span class="keyword">this</span>.items.map(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> createElement(<span class="string">'li'</span>, item.name)</span><br><span class="line">    &#125;))</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> createElement(<span class="string">'p'</span>, <span class="string">'No items found.'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a><code>v-model</code></h3><p>render å‡½æ•°ä¸­æ²¡æœ‰ä¸ <code>v-model</code> ç›¸åº”çš„ api - ä½ å¿…é¡»è‡ªå·±æ¥å®ç°ç›¸åº”çš„é€»è¾‘ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">return</span> createElement(<span class="string">'input'</span>, &#123;</span><br><span class="line">    domProps: &#123;</span><br><span class="line">      value: self.value</span><br><span class="line">    &#125;,</span><br><span class="line">    on: &#123;</span><br><span class="line">      input: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">        self.value = event.target.value</span><br><span class="line">        self.$emit(<span class="string">'input'</span>, event.target.value)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>è¿™å°±æ˜¯æ·±å…¥åº•å±‚è¦ä»˜å‡ºçš„ï¼Œå°½ç®¡éº»çƒ¦äº†ä¸€äº›ï¼Œä½†ç›¸å¯¹äº <code>v-model</code> æ¥è¯´ï¼Œä½ å¯ä»¥æ›´çµæ´»åœ°æ§åˆ¶ã€‚</p>
+<h3 id="äº‹ä»¶-amp-æŒ‰é”®ä¿®é¥°ç¬¦"><a href="#äº‹ä»¶-amp-æŒ‰é”®ä¿®é¥°ç¬¦" class="headerlink" title="äº‹ä»¶ &amp; æŒ‰é”®ä¿®é¥°ç¬¦"></a>äº‹ä»¶ &amp; æŒ‰é”®ä¿®é¥°ç¬¦</h3><p>å¯¹äº <code>.passive</code>ã€<code>.capture</code> å’Œ <code>.once</code>äº‹ä»¶ä¿®é¥°ç¬¦, Vue æä¾›äº†ç›¸åº”çš„å‰ç¼€å¯ä»¥ç”¨äº <code>on</code>ï¼š</p>
+<table>
+<thead>
+<tr>
+<th>Modifier(s)</th>
+<th>Prefix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.passive</code></td>
+<td><code>&amp;</code></td>
+</tr>
+<tr>
+<td><code>.capture</code></td>
+<td><code>!</code></td>
+</tr>
+<tr>
+<td><code>.once</code></td>
+<td><code>~</code></td>
+</tr>
+<tr>
+<td><code>.capture.once</code> or<br><code>.once.capture</code></td>
+<td><code>~!</code></td>
+</tr>
+</tbody>
+</table>
+<p>ä¾‹å¦‚:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">on: &#123;</span><br><span class="line">  <span class="string">'!click'</span>: <span class="keyword">this</span>.doThisInCapturingMode,</span><br><span class="line">  <span class="string">'~keyup'</span>: <span class="keyword">this</span>.doThisOnce,</span><br><span class="line">  <span class="string">`~!mouseover`</span>: <span class="keyword">this</span>.doThisOnceInCapturingMode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>å¯¹äºå…¶ä»–çš„ä¿®é¥°ç¬¦ï¼Œå‰ç¼€ä¸æ˜¯å¾ˆé‡è¦ï¼Œå› ä¸ºä½ å¯ä»¥åœ¨äº‹ä»¶å¤„ç†å‡½æ•°ä¸­ä½¿ç”¨äº‹ä»¶æ–¹æ³•ï¼š</p>
+<table>
+<thead>
+<tr>
+<th>Modifier(s)</th>
+<th>Equivalent in Handler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.stop</code></td>
+<td><code>event.stopPropagation()</code></td>
+</tr>
+<tr>
+<td><code>.prevent</code></td>
+<td><code>event.preventDefault()</code></td>
+</tr>
+<tr>
+<td><code>.self</code></td>
+<td><code>if (event.target !== event.currentTarget) return</code></td>
+</tr>
+<tr>
+<td>Keys:<br><code>.enter</code>, <code>.13</code></td>
+<td><code>if (event.keyCode !== 13) return</code> (change <code>13</code> to <a href="javascript:if(confirm('http://keycode.info/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://keycode.info/'" tppabs="http://keycode.info/" target="_blank" rel="noopener">another key code</a> for other key modifiers)</td>
+</tr>
+<tr>
+<td>Modifiers Keys:<br><code>.ctrl</code>, <code>.alt</code>, <code>.shift</code>, <code>.meta</code></td>
+<td><code>if (!event.ctrlKey) return</code> (change <code>ctrlKey</code> to <code>altKey</code>, <code>shiftKey</code>, or <code>metaKey</code>, respectively)</td>
+</tr>
+</tbody>
+</table>
+<p>è¿™é‡Œæ˜¯ä¸€ä¸ªä½¿ç”¨æ‰€æœ‰ä¿®é¥°ç¬¦çš„ä¾‹å­ï¼š</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">on: &#123;</span><br><span class="line">  keyup: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line"> Â  Â <span class="comment">// å¦‚æœè§¦å‘äº‹ä»¶çš„å…ƒç´ ä¸æ˜¯äº‹ä»¶ç»‘å®šçš„å…ƒç´ </span></span><br><span class="line"> Â  Â <span class="comment">// åˆ™è¿”å›</span></span><br><span class="line"> Â  Â <span class="keyword">if</span> (event.target !== event.currentTarget) <span class="keyword">return</span></span><br><span class="line"> Â  Â <span class="comment">// å¦‚æœæŒ‰ä¸‹å»çš„ä¸æ˜¯ enter é”®æˆ–è€…</span></span><br><span class="line"> Â  Â <span class="comment">// æ²¡æœ‰åŒæ—¶æŒ‰ä¸‹ shift é”®</span></span><br><span class="line"> Â  Â <span class="comment">// åˆ™è¿”å›</span></span><br><span class="line"> Â  Â <span class="keyword">if</span> (!event.shiftKey || event.keyCode !== <span class="number">13</span>) <span class="keyword">return</span></span><br><span class="line"> Â  Â <span class="comment">// é˜»æ­¢Â äº‹ä»¶å†’æ³¡</span></span><br><span class="line"> Â   event.stopPropagation()</span><br><span class="line"> Â  Â <span class="comment">// é˜»æ­¢è¯¥å…ƒç´ é»˜è®¤çš„ keyup äº‹ä»¶</span></span><br><span class="line"> Â  Â event.preventDefault()</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="æ’æ§½"><a href="#æ’æ§½" class="headerlink" title="æ’æ§½"></a>æ’æ§½</h3><p>ä½ å¯ä»¥ä» <a href="index-2.htm#vm-slots" tppabs="https://cn.vuejs.org/v2/api/#vm-slots"><code>this.$slots</code></a> è·å– VNodes åˆ—è¡¨ä¸­çš„é™æ€å†…å®¹ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// `&lt;div&gt;&lt;slot&gt;&lt;/slot&gt;&lt;/div&gt;`</span></span><br><span class="line">  <span class="keyword">return</span> createElement(<span class="string">'div'</span>, <span class="keyword">this</span>.$slots.default)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>è¿˜å¯ä»¥ä» <a href="index-2.htm#vm-scopedSlots" tppabs="https://cn.vuejs.org/v2/api/#vm-scopedSlots"><code>this.$scopedSlots</code></a> ä¸­è·å¾—èƒ½ç”¨ä½œå‡½æ•°çš„ä½œç”¨åŸŸæ’æ§½ï¼Œè¿™ä¸ªå‡½æ•°è¿”å› VNodesï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// `&lt;div&gt;&lt;slot :text="msg"&gt;&lt;/slot&gt;&lt;/div&gt;`</span></span><br><span class="line">  <span class="keyword">return</span> createElement(<span class="string">'div'</span>, [</span><br><span class="line">    <span class="keyword">this</span>.$scopedSlots.default(&#123;</span><br><span class="line">      text: <span class="keyword">this</span>.msg</span><br><span class="line">    &#125;)</span><br><span class="line">  ])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>å¦‚æœè¦ç”¨æ¸²æŸ“å‡½æ•°å‘å­ç»„ä»¶ä¸­ä¼ é€’ä½œç”¨åŸŸæ’æ§½ï¼Œå¯ä»¥åˆ©ç”¨ VNode æ•°æ®ä¸­çš„ <code>scopedSlots</code> åŸŸï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">render (createElement) &#123;</span><br><span class="line">  <span class="keyword">return</span> createElement(<span class="string">'div'</span>, [</span><br><span class="line">    createElement(<span class="string">'child'</span>, &#123;</span><br><span class="line">      <span class="comment">// pass `scopedSlots` in the data object</span></span><br><span class="line">      <span class="comment">// in the form of &#123; name: props =&gt; VNode | Array&lt;VNode&gt; &#125;</span></span><br><span class="line">      scopedSlots: &#123;</span><br><span class="line">        <span class="keyword">default</span>: <span class="function"><span class="keyword">function</span> (<span class="params">props</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">return</span> createElement(<span class="string">'span'</span>, props.text)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h2><p>å¦‚æœä½ å†™äº†å¾ˆå¤š <code>render</code> å‡½æ•°ï¼Œå¯èƒ½ä¼šè§‰å¾—ç—›è‹¦ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">createElement(</span><br><span class="line">  <span class="string">'anchored-heading'</span>, &#123;</span><br><span class="line">    props: &#123;</span><br><span class="line">      level: <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, [</span><br><span class="line">    createElement(<span class="string">'span'</span>, <span class="string">'Hello'</span>),</span><br><span class="line">    <span class="string">' world!'</span></span><br><span class="line">  ]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>ç‰¹åˆ«æ˜¯æ¨¡æ¿å¦‚æ­¤ç®€å•çš„æƒ…å†µä¸‹ï¼š</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">anchored-heading</span> <span class="attr">:level</span>=<span class="string">"1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">span</span>&gt;</span> world!</span><br><span class="line"><span class="tag">&lt;/<span class="name">anchored-heading</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>è¿™å°±æ˜¯ä¸ºä»€ä¹ˆä¼šæœ‰ä¸€ä¸ª <a href="javascript:if(confirm('https://github.com/vuejs/babel-plugin-transform-vue-jsx  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/babel-plugin-transform-vue-jsx'" tppabs="https://github.com/vuejs/babel-plugin-transform-vue-jsx" target="_blank" rel="noopener">Babel æ’ä»¶</a>ï¼Œç”¨äºåœ¨ Vue ä¸­ä½¿ç”¨ JSX è¯­æ³•çš„åŸå› ï¼Œå®ƒå¯ä»¥è®©æˆ‘ä»¬å›åˆ°æ›´æ¥è¿‘äºæ¨¡æ¿çš„è¯­æ³•ä¸Šã€‚</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> AnchoredHeading <span class="keyword">from</span> <span class="string">'./AnchoredHeading.vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#demo'</span>,</span><br><span class="line">  render (h) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;AnchoredHeading level=&#123;<span class="number">1</span>&#125;&gt;</span><br><span class="line">        &lt;span&gt;Hello&lt;<span class="regexp">/span&gt; world!</span></span><br><span class="line"><span class="regexp">      &lt;/</span>AnchoredHeading&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p class="tip">å°† <code>h</code> ä½œä¸º <code>createElement</code> çš„åˆ«åæ˜¯ Vue ç”Ÿæ€ç³»ç»Ÿä¸­çš„ä¸€ä¸ªé€šç”¨æƒ¯ä¾‹ï¼Œå®é™…ä¸Šä¹Ÿæ˜¯ JSX æ‰€è¦æ±‚çš„ï¼Œå¦‚æœåœ¨ä½œç”¨åŸŸä¸­ <code>h</code> å¤±å»ä½œç”¨ï¼Œåœ¨åº”ç”¨ä¸­ä¼šè§¦å‘æŠ¥é”™ã€‚</p>
+
+<p>æ›´å¤šå…³äº JSX æ˜ å°„åˆ° JavaScriptï¼Œé˜…è¯» <a href="javascript:if(confirm('https://github.com/vuejs/babel-plugin-transform-vue-jsx  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/babel-plugin-transform-vue-jsx#usage'" tppabs="https://github.com/vuejs/babel-plugin-transform-vue-jsx#usage" target="_blank" rel="noopener">ä½¿ç”¨æ–‡æ¡£</a>ã€‚</p>
+<h2 id="å‡½æ•°å¼ç»„ä»¶"><a href="#å‡½æ•°å¼ç»„ä»¶" class="headerlink" title="å‡½æ•°å¼ç»„ä»¶"></a>å‡½æ•°å¼ç»„ä»¶</h2><p>ä¹‹å‰åˆ›å»ºçš„é”šç‚¹æ ‡é¢˜ç»„ä»¶æ˜¯æ¯”è¾ƒç®€å•ï¼Œæ²¡æœ‰ç®¡ç†æˆ–è€…ç›‘å¬ä»»ä½•ä¼ é€’ç»™ä»–çš„çŠ¶æ€ï¼Œä¹Ÿæ²¡æœ‰ç”Ÿå‘½å‘¨æœŸæ–¹æ³•ã€‚å®ƒåªæ˜¯ä¸€ä¸ªæ¥æ”¶å‚æ•°çš„å‡½æ•°ã€‚<br>åœ¨è¿™ä¸ªä¾‹å­ä¸­ï¼Œæˆ‘ä»¬æ ‡è®°ç»„ä»¶ä¸º <code>functional</code>ï¼Œè¿™æ„å‘³å®ƒæ˜¯æ— çŠ¶æ€ (æ²¡æœ‰ <code>data</code>)ï¼Œæ— å®ä¾‹ (æ²¡æœ‰ <code>this</code> ä¸Šä¸‹æ–‡)ã€‚<br>ä¸€ä¸ª <strong>å‡½æ•°å¼ç»„ä»¶</strong> å°±åƒè¿™æ ·ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</span><br><span class="line">  functional: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// ä¸ºäº†å¼¥è¡¥ç¼ºå°‘çš„å®ä¾‹</span></span><br><span class="line">  <span class="comment">// æä¾›ç¬¬äºŒä¸ªå‚æ•°ä½œä¸ºä¸Šä¸‹æ–‡</span></span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement, context</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Props å¯é€‰</span></span><br><span class="line">  props: &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>æ³¨æ„ï¼šåœ¨ 2.3.0 ä¹‹å‰çš„ç‰ˆæœ¬ä¸­ï¼Œå¦‚æœä¸€ä¸ªå‡½æ•°å¼ç»„ä»¶æƒ³è¦æ¥å— propsï¼Œåˆ™ <code>props</code> é€‰é¡¹æ˜¯å¿…é¡»çš„ã€‚åœ¨ 2.3.0 æˆ–ä»¥ä¸Šçš„ç‰ˆæœ¬ä¸­ï¼Œä½ å¯ä»¥çœç•¥ <code>props</code> é€‰é¡¹ï¼Œæ‰€æœ‰ç»„ä»¶ä¸Šçš„å±æ€§éƒ½ä¼šè¢«è‡ªåŠ¨è§£æä¸º propsã€‚</p>
+</blockquote>
+<p>åœ¨ 2.5.0 åŠä»¥ä¸Šç‰ˆæœ¬ä¸­ï¼Œå¦‚æœä½ ä½¿ç”¨äº†<a href="single-file-components-1.html" tppabs="https://cn.vuejs.org/v2/guide/single-file-components.html">å•æ–‡ä»¶ç»„ä»¶</a>ï¼Œé‚£ä¹ˆåŸºäºæ¨¡æ¿çš„å‡½æ•°å¼ç»„ä»¶å¯ä»¥è¿™æ ·å£°æ˜ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;template functional&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br></pre></td></tr></table></figure>
+<p>ç»„ä»¶éœ€è¦çš„ä¸€åˆ‡éƒ½æ˜¯é€šè¿‡ä¸Šä¸‹æ–‡ä¼ é€’ï¼ŒåŒ…æ‹¬ï¼š</p>
+<ul>
+<li><code>props</code>ï¼šæä¾› props çš„å¯¹è±¡</li>
+<li><code>children</code>: VNode å­èŠ‚ç‚¹çš„æ•°ç»„</li>
+<li><code>slots</code>: slots å¯¹è±¡</li>
+<li><code>data</code>ï¼šä¼ é€’ç»™ç»„ä»¶çš„ data å¯¹è±¡</li>
+<li><code>parent</code>ï¼šå¯¹çˆ¶ç»„ä»¶çš„å¼•ç”¨</li>
+<li><code>listeners</code>: (2.3.0+) ä¸€ä¸ªåŒ…å«äº†ç»„ä»¶ä¸Šæ‰€æ³¨å†Œçš„ <code>v-on</code> ä¾¦å¬å™¨çš„å¯¹è±¡ã€‚è¿™åªæ˜¯ä¸€ä¸ªæŒ‡å‘ <code>data.on</code> çš„åˆ«åã€‚</li>
+<li><code>injections</code>: (2.3.0+) å¦‚æœä½¿ç”¨äº† <a href="index-2.htm#provide-inject" tppabs="https://cn.vuejs.org/v2/api/#provide-inject"><code>inject</code></a> é€‰é¡¹ï¼Œåˆ™è¯¥å¯¹è±¡åŒ…å«äº†åº”å½“è¢«æ³¨å…¥çš„å±æ€§ã€‚</li>
+</ul>
+<p>åœ¨æ·»åŠ  <code>functional: true</code> ä¹‹åï¼Œé”šç‚¹æ ‡é¢˜ç»„ä»¶çš„ render å‡½æ•°ä¹‹é—´ç®€å•æ›´æ–°å¢åŠ  <code>context</code> å‚æ•°ï¼Œ<code>this.$slots.default</code> æ›´æ–°ä¸º <code>context.children</code>ï¼Œä¹‹å<code>this.level</code> æ›´æ–°ä¸º <code>context.props.level</code>ã€‚</p>
+<p>å› ä¸ºå‡½æ•°å¼ç»„ä»¶åªæ˜¯ä¸€ä¸ªå‡½æ•°ï¼Œæ‰€ä»¥æ¸²æŸ“å¼€é”€ä¹Ÿä½å¾ˆå¤šã€‚ç„¶è€Œï¼Œå¯¹æŒä¹…åŒ–å®ä¾‹çš„ç¼ºä¹ä¹Ÿæ„å‘³ç€å‡½æ•°å¼ç»„ä»¶ä¸ä¼šå‡ºç°åœ¨ <a href="javascript:if(confirm('https://github.com/vuejs/vue-devtools  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/vue-devtools'" tppabs="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">Vue devtools</a> çš„ç»„ä»¶æ ‘é‡Œã€‚</p>
+<p>åœ¨ä½œä¸ºåŒ…è£…ç»„ä»¶æ—¶å®ƒä»¬ä¹ŸåŒæ ·éå¸¸æœ‰ç”¨ï¼Œæ¯”å¦‚ï¼Œå½“ä½ éœ€è¦åšè¿™äº›æ—¶ï¼š</p>
+<ul>
+<li>ç¨‹åºåŒ–åœ°åœ¨å¤šä¸ªç»„ä»¶ä¸­é€‰æ‹©ä¸€ä¸ª</li>
+<li>åœ¨å°† children, props, data ä¼ é€’ç»™å­ç»„ä»¶ä¹‹å‰æ“ä½œå®ƒä»¬ã€‚</li>
+</ul>
+<p>ä¸‹é¢æ˜¯ä¸€ä¸ªä¾èµ–ä¼ å…¥ props çš„å€¼çš„ <code>smart-list</code> ç»„ä»¶ä¾‹å­ï¼Œå®ƒèƒ½ä»£è¡¨æ›´å¤šå…·ä½“çš„ç»„ä»¶ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> EmptyList = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"><span class="keyword">var</span> TableList = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"><span class="keyword">var</span> OrderedList = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"><span class="keyword">var</span> UnorderedList = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"></span><br><span class="line">Vue.component(<span class="string">'smart-list'</span>, &#123;</span><br><span class="line">  functional: <span class="literal">true</span>,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement, context</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">appropriateListComponent</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> items = context.props.items</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (items.length === <span class="number">0</span>)           <span class="keyword">return</span> EmptyList</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> items[<span class="number">0</span>] === <span class="string">'object'</span>) <span class="keyword">return</span> TableList</span><br><span class="line">      <span class="keyword">if</span> (context.props.isOrdered)      <span class="keyword">return</span> OrderedList</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> UnorderedList</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> createElement(</span><br><span class="line">      appropriateListComponent(),</span><br><span class="line">      context.data,</span><br><span class="line">      context.children</span><br><span class="line">    )</span><br><span class="line">  &#125;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    items: &#123;</span><br><span class="line">      type: <span class="built_in">Array</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    isOrdered: <span class="built_in">Boolean</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="slots-å’Œ-children-å¯¹æ¯”"><a href="#slots-å’Œ-children-å¯¹æ¯”" class="headerlink" title="slots() å’Œ children å¯¹æ¯”"></a><code>slots()</code> å’Œ <code>children</code> å¯¹æ¯”</h3><p>ä½ å¯èƒ½æƒ³çŸ¥é“ä¸ºä»€ä¹ˆåŒæ—¶éœ€è¦ <code>slots()</code> å’Œ <code>children</code>ã€‚<code>slots().default</code> ä¸æ˜¯å’Œ <code>children</code> ç±»ä¼¼çš„å—ï¼Ÿåœ¨ä¸€äº›åœºæ™¯ä¸­ï¼Œæ˜¯è¿™æ ·ï¼Œä½†æ˜¯å¦‚æœæ˜¯å‡½æ•°å¼ç»„ä»¶å’Œä¸‹é¢è¿™æ ·çš„ children å‘¢ï¼Ÿ</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-functional-component</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">slot</span>=<span class="string">"foo"</span>&gt;</span></span><br><span class="line">    first</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>second<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">my-functional-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>å¯¹äºè¿™ä¸ªç»„ä»¶ï¼Œ<code>children</code> ä¼šç»™ä½ ä¸¤ä¸ªæ®µè½æ ‡ç­¾ï¼Œè€Œ <code>slots().default</code> åªä¼šä¼ é€’ç¬¬äºŒä¸ªåŒ¿åæ®µè½æ ‡ç­¾ï¼Œ<code>slots().foo</code> ä¼šä¼ é€’ç¬¬ä¸€ä¸ªå…·åæ®µè½æ ‡ç­¾ã€‚åŒæ—¶æ‹¥æœ‰ <code>children</code> å’Œ <code>slots()</code> ï¼Œå› æ­¤ä½ å¯ä»¥é€‰æ‹©è®©ç»„ä»¶é€šè¿‡ <code>slot()</code> ç³»ç»Ÿåˆ†å‘æˆ–è€…ç®€å•çš„é€šè¿‡ <code>children</code> æ¥æ”¶ï¼Œè®©å…¶ä»–ç»„ä»¶å»å¤„ç†ã€‚</p>
+<h2 id="æ¨¡æ¿ç¼–è¯‘"><a href="#æ¨¡æ¿ç¼–è¯‘" class="headerlink" title="æ¨¡æ¿ç¼–è¯‘"></a>æ¨¡æ¿ç¼–è¯‘</h2><p>ä½ å¯èƒ½æœ‰å…´è¶£çŸ¥é“ï¼ŒVue çš„æ¨¡æ¿å®é™…æ˜¯ç¼–è¯‘æˆäº† render å‡½æ•°ã€‚è¿™æ˜¯ä¸€ä¸ªå®ç°ç»†èŠ‚ï¼Œé€šå¸¸ä¸éœ€è¦å…³å¿ƒï¼Œä½†å¦‚æœä½ æƒ³çœ‹çœ‹æ¨¡æ¿çš„åŠŸèƒ½æ˜¯æ€æ ·è¢«ç¼–è¯‘çš„ï¼Œä½ ä¼šå‘ç°ä¼šéå¸¸æœ‰è¶£ã€‚ä¸‹é¢æ˜¯ä¸€ä¸ªä½¿ç”¨ <code>Vue.compile</code>  æ¥å®æ—¶ç¼–è¯‘æ¨¡æ¿å­—ç¬¦ä¸²çš„ç®€å• demoï¼š</p>
+
+<div id="vue-compile-demo" class="demo">
+  <textarea v-model="templateText" rows="10"></textarea>
+  <div v-if="typeof result === 'object'">
+    <label>render:</label>
+    <pre><code>{{ result.render }}</code></pre>
+    <label>staticRenderFns:</label>
+    <pre v-for="(fn, index) in result.staticRenderFns"><code>_m({{ index }}): {{ fn }}</code></pre>
+    <pre v-if="!result.staticRenderFns.length"><code>{{ result.staticRenderFns }}</code></pre>
+  </div>
+  <div v-else="">
+    <label>Compilation Error:</label>
+    <pre><code>{{ result }}</code></pre>
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#vue-compile-demo',
+  data: {
+    templateText: '\
+<div>\n\
+  <header>\n\
+    <h1>I\'m a template!</h1>\n\
+  </header>\n\
+  <p v-if="message">\n\
+    {{ message }}\n\
+  </p>\n\
+  <p v-else>\n\
+    No message.\n\
+  </p>\n\
+</div>\
+    ',
+  },
+  computed: {
+    result: function () {
+      if (!this.templateText) {
+        return 'Enter a valid template above'
+      }
+      try {
+        var result = Vue.compile(this.templateText.replace(/\s{2,}/g, ''))
+        return {
+          render: this.formatFunction(result.render),
+          staticRenderFns: result.staticRenderFns.map(this.formatFunction)
+        }
+      } catch (error) {
+        return error.message
+      }
+    }
+  },
+  methods: {
+    formatFunction: function (fn) {
+      return fn.toString().replace(/(\{\n)(\S)/, '$1  $2')
+    }
+  }
+})
+console.error = function (error) {
+  throw new Error(error)
+}
+</script>
+<style>
+#vue-compile-demo {
+  -webkit-user-select: inherit;
+  user-select: inherit;
+}
+#vue-compile-demo pre {
+  padding: 10px;
+  overflow-x: auto;
+}
+#vue-compile-demo code {
+  white-space: pre;
+  padding: 0
+}
+#vue-compile-demo textarea {
+  width: 100%;
+  font-family: monospace;
+}
+</style>
+
+
+  
+  
+    <div class="guide-links">
+      
+        <span>â† <a href="custom-directive-1.html" tppabs="https://cn.vuejs.org/v2/guide/custom-directive.html">è‡ªå®šä¹‰æŒ‡ä»¤</a></span>
+      
+      
+        <span style="float: right;"><a href="plugins-1.html" tppabs="https://cn.vuejs.org/v2/guide/plugins.html">æ’ä»¶</a> â†’</span>
+      
+    </div>
+  
+  <div class="footer">
+      <script src="monetization.js" tppabs="https://m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div class="bsa-cpc"></div>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
+      target: '.bsa-cpc',
+      align: 'horizontal',
+      disable_css: 'true'
+    });
+      }
+  })();
+</script>
+
+    å‘ç°é”™è¯¯ï¼Ÿæƒ³å‚ä¸ç¼–è¾‘ï¼Ÿ
+    <a href="javascript:if(confirm('https://github.com/vuejs/cn.vuejs.org/blob/master/src/v2/guide/render-function.md  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/cn.vuejs.org/blob/master/src/v2/guide/render-function.md'" tppabs="https://github.com/vuejs/cn.vuejs.org/blob/master/src/v2/guide/render-function.md" target="_blank">
+      åœ¨ Github ä¸Šç¼–è¾‘æ­¤é¡µï¼
+    </a>
+  </div>
+</div>
+
+        
+      </div>
+      <script src="smooth-scroll.min.js" tppabs="https://cn.vuejs.org/js/smooth-scroll.min.js"></script>
+    
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <script src="css.escape.js" tppabs="https://cn.vuejs.org/js/css.escape.js"></script>
+    <script src="common.js" tppabs="https://cn.vuejs.org/js/common.js"></script>
+
+    <!-- search -->
+    <link href="docsearch.min.css" tppabs="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="search.css" tppabs="https://cn.vuejs.org/css/search.css">
+    <script src="docsearch.min.js" tppabs="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+    <script>
+    [
+      '#search-query-nav',
+      '#search-query-sidebar',
+      '#search-query-menu'
+    ].forEach(function (selector) {
+      if (!document.querySelector(selector)) return
+      // search index defaults to v2
+      var match = window.location.pathname.match(/^\/(v\d+)/)
+      var version = match ? match[1] : 'v2'
+      docsearch({
+      appId: 'BH4D9OD16A',
+      apiKey: '5638280abff9d207417bb03be05f0b25',
+      indexName: 'vuejs_cn2',
+      inputSelector: selector,
+      algoliaOptions: { facetFilters: ["version:" + version] }
+      })
+    })
+    </script>
+
+    <!-- fastclick -->
+    <script src="fastclick.min.js" tppabs="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+    </script>
+  </body>
+</html>

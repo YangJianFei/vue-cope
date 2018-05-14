@@ -1,0 +1,1192 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <title>åˆ—è¡¨æ¸²æŸ“ â€” Vue.js</title>
+    <meta charset=UTF-8"utf-8">
+    <meta name="description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/list.html">
+    <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/list.html">
+    <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/list.html">
+    <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/list.html">
+    <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/list.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/list.html">
+    <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/list.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="åˆ—è¡¨æ¸²æŸ“ â€” Vue.js">
+    <meta property="og:description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta property="og:image" content="https://cn.vuejs.org//images/logo.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="åˆ—è¡¨æ¸²æŸ“ â€” Vue.js">
+    <meta name="twitter:description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta name="twitter:image" content="https://cn.vuejs.org/images/logo.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+    <link rel="icon" href="/images/logo.png" type="image/png">
+
+    <meta name="msapplication-TileColor" content="#4fc08d">
+    <meta name="theme-color" content="#4fc08d">
+
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'> -->
+
+    <link href="font-awesome.min.css" tppabs="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- main page styles -->
+    <link rel="stylesheet" href="page.css" tppabs="https://cn.vuejs.org/css/page.css">
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script src="vue.js" tppabs="https://cn.vuejs.org/js/vue.js"></script>
+    <script>window.PAGE_TYPE = "guide"</script>
+
+    <!-- ga -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','analytics.js'/*tpa=https://www.google-analytics.com/analytics.js*/,'ga');
+
+      ga('create', 'UA-46852172-3', 'https://cn.vuejs.org/v2/guide/cn.vuejs.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body class="docs">
+    <div id="mobile-bar" >
+      <a class="menu-button"></a>
+      <a class="logo" href="index.htm" tppabs="https://cn.vuejs.org/"></a>
+    </div>
+    <div id="header">
+  <a id="logo" href="index.htm" tppabs="https://cn.vuejs.org/">
+    <img src="logo.png" tppabs="https://cn.vuejs.org/images/logo.png">
+    <span>Vue.js</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">å­¦ä¹ </a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="index-1.htm" tppabs="https://cn.vuejs.org/v2/guide/" class="nav-link current">æ•™ç¨‹</a></li>
+      <li><a href="index-2.htm" tppabs="https://cn.vuejs.org/v2/api/" class="nav-link">API</a></li>
+      <li><a href="index-3.htm" tppabs="https://cn.vuejs.org/v2/style-guide/" class="nav-link">é£æ ¼æŒ‡å— (beta)</a></li>
+      <li><a href="index-4.htm" tppabs="https://cn.vuejs.org/v2/examples/" class="nav-link">ç¤ºä¾‹</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">ç”Ÿæ€ç³»ç»Ÿ</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>å¸®åŠ©</h4></li>
+    <li><ul>
+      <li><a href="javascript:if(confirm('https://forum.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://forum.vuejs.org/'" tppabs="https://forum.vuejs.org/" class="nav-link" target="_blank">è®ºå›</a></li>
+      <li><a href="javascript:if(confirm('https://chat.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://chat.vuejs.org/'" tppabs="https://chat.vuejs.org/" class="nav-link" target="_blank">èŠå¤©å®¤</a></li>
+    </ul></li>
+    <li><h4>å·¥å…·</h4></li>
+    <li>
+      <ul>
+        <li><a href="javascript:if(confirm('https://github.com/vuejs/vue-devtools  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/vue-devtools'" tppabs="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="javascript:if(confirm('https://vuejs-templates.github.io/webpack  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vuejs-templates.github.io/webpack'" tppabs="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">webpack æ¨¡æ¿</a></li>
+        <li><a href="javascript:if(confirm('https://vue-loader.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vue-loader.vuejs.org/'" tppabs="https://vue-loader.vuejs.org/" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>æ ¸å¿ƒæ’ä»¶</h4></li>
+    <li><ul>
+      <li><a href="javascript:if(confirm('https://router.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://router.vuejs.org/'" tppabs="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="javascript:if(confirm('https://vuex.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vuex.vuejs.org/'" tppabs="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="javascript:if(confirm('https://ssr.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ssr.vuejs.org/'" tppabs="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue æœåŠ¡ç«¯æ¸²æŸ“</a></li>
+    </ul></li>
+    <li><h4>ä¿¡æ¯</h4></li>
+    <li><ul>
+      <li><a href="javascript:if(confirm('https://github.com/vuejs/roadmap  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/roadmap'" tppabs="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="javascript:if(confirm('https://twitter.com/vuejs  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://twitter.com/vuejs'" tppabs="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="javascript:if(confirm('https://medium.com/the-vue-point  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://medium.com/the-vue-point'" tppabs="https://medium.com/the-vue-point" class="nav-link" target="_blank">åšå®¢</a></li>
+      <li><a href="javascript:if(confirm('https://vuejobs.com/?ref=vuejs  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vuejobs.com/?ref=vuejs'" tppabs="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">å·¥ä½œ</a></li>
+    </ul></li>
+    <li><h4>èµ„æºåˆ—è¡¨</h4></li>
+    <li><ul>
+      <li><a href="javascript:if(confirm('https://github.com/vuejs  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs'" tppabs="https://github.com/vuejs" class="nav-link" target="_blank">å®˜æ–¹ä»“åº“</a></li>
+      <li><a href="javascript:if(confirm('https://curated.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://curated.vuejs.org/'" tppabs="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue ä¼˜é€‰</a></li>
+      <li><a href="javascript:if(confirm('https://github.com/vuejs/awesome-vue  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/awesome-vue'" tppabs="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue èµ„æº</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="team.html" tppabs="https://cn.vuejs.org/v2/guide/team.html" class="nav-link team">å›¢é˜Ÿ</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="index-5.htm" tppabs="https://cn.vuejs.org/support-vuejs/" class="nav-link">æ”¯æŒ Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="index-5.htm#One-time-Donations" tppabs="https://cn.vuejs.org/support-vuejs/#One-time-Donations" class="nav-link">ä¸€æ¬¡æ€§èµåŠ©</a></li>
+      <li><a href="index-5.htm#Recurring-Pledges" tppabs="https://cn.vuejs.org/support-vuejs/#Recurring-Pledges" class="nav-link">å‘¨æœŸæ€§èµåŠ©</a></li>
+      <li><a href="javascript:if(confirm('https://vue.threadless.com/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vue.threadless.com/'" tppabs="https://vue.threadless.com/" target="_blank" class="nav-link">T æ¤å•†åº—</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">å¤šè¯­è¨€</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="javascript:if(confirm('https://vuejs.org/v2/guide/list.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vuejs.org/v2/guide/list.html'" tppabs="https://vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="javascript:if(confirm('https://jp.vuejs.org/v2/guide/list.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://jp.vuejs.org/v2/guide/list.html'" tppabs="https://jp.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">æ—¥æœ¬èª</a></li>
+    <li><a href="javascript:if(confirm('https://ru.vuejs.org/v2/guide/list.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ru.vuejs.org/v2/guide/list.html'" tppabs="https://ru.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">Ğ ÑƒÑÑĞºĞ¸Ğ¹</a></li>
+    <li><a href="javascript:if(confirm('https://kr.vuejs.org/v2/guide/list.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://kr.vuejs.org/v2/guide/list.html'" tppabs="https://kr.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">í•œêµ­ì–´</a></li>
+    <li><a href="javascript:if(confirm('https://br.vuejs.org/v2/guide/list.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://br.vuejs.org/v2/guide/list.html'" tppabs="https://br.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">PortuguÃªs</a></li>
+    <li><a href="javascript:if(confirm('https://fr.vuejs.org/v2/guide/list.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://fr.vuejs.org/v2/guide/list.html'" tppabs="https://fr.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">FranÃ§ais</a></li>
+    <li><a href="javascript:if(confirm('https://vi.vuejs.org/v2/guide/list.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vi.vuejs.org/v2/guide/list.html'" tppabs="https://vi.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">Tiáº¿ng Viá»‡t</a></li>
+  </ul>
+</li>
+
+<li><a href="javascript:if(confirm('https://github.com/vuejs/cn.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/cn.vuejs.org/'" tppabs="https://github.com/vuejs/cn.vuejs.org/" target="_blank" class="nav-link contribute">å‚ä¸ç¿»è¯‘</a></li>
+
+  </ul>
+</div>
+
+    
+      <div id="main" class="fix-sidebar">
+        
+          
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">å­¦ä¹ </a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="index-1.htm" tppabs="https://cn.vuejs.org/v2/guide/" class="nav-link current">æ•™ç¨‹</a></li>
+      <li><a href="index-2.htm" tppabs="https://cn.vuejs.org/v2/api/" class="nav-link">API</a></li>
+      <li><a href="index-3.htm" tppabs="https://cn.vuejs.org/v2/style-guide/" class="nav-link">é£æ ¼æŒ‡å— (beta)</a></li>
+      <li><a href="index-4.htm" tppabs="https://cn.vuejs.org/v2/examples/" class="nav-link">ç¤ºä¾‹</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">ç”Ÿæ€ç³»ç»Ÿ</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>å¸®åŠ©</h4></li>
+    <li><ul>
+      <li><a href="javascript:if(confirm('https://forum.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://forum.vuejs.org/'" tppabs="https://forum.vuejs.org/" class="nav-link" target="_blank">è®ºå›</a></li>
+      <li><a href="javascript:if(confirm('https://chat.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://chat.vuejs.org/'" tppabs="https://chat.vuejs.org/" class="nav-link" target="_blank">èŠå¤©å®¤</a></li>
+    </ul></li>
+    <li><h4>å·¥å…·</h4></li>
+    <li>
+      <ul>
+        <li><a href="javascript:if(confirm('https://github.com/vuejs/vue-devtools  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/vue-devtools'" tppabs="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="javascript:if(confirm('https://vuejs-templates.github.io/webpack  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vuejs-templates.github.io/webpack'" tppabs="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">webpack æ¨¡æ¿</a></li>
+        <li><a href="javascript:if(confirm('https://vue-loader.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vue-loader.vuejs.org/'" tppabs="https://vue-loader.vuejs.org/" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>æ ¸å¿ƒæ’ä»¶</h4></li>
+    <li><ul>
+      <li><a href="javascript:if(confirm('https://router.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://router.vuejs.org/'" tppabs="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="javascript:if(confirm('https://vuex.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vuex.vuejs.org/'" tppabs="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="javascript:if(confirm('https://ssr.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ssr.vuejs.org/'" tppabs="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue æœåŠ¡ç«¯æ¸²æŸ“</a></li>
+    </ul></li>
+    <li><h4>ä¿¡æ¯</h4></li>
+    <li><ul>
+      <li><a href="javascript:if(confirm('https://github.com/vuejs/roadmap  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/roadmap'" tppabs="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="javascript:if(confirm('https://twitter.com/vuejs  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://twitter.com/vuejs'" tppabs="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="javascript:if(confirm('https://medium.com/the-vue-point  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://medium.com/the-vue-point'" tppabs="https://medium.com/the-vue-point" class="nav-link" target="_blank">åšå®¢</a></li>
+      <li><a href="javascript:if(confirm('https://vuejobs.com/?ref=vuejs  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vuejobs.com/?ref=vuejs'" tppabs="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">å·¥ä½œ</a></li>
+    </ul></li>
+    <li><h4>èµ„æºåˆ—è¡¨</h4></li>
+    <li><ul>
+      <li><a href="javascript:if(confirm('https://github.com/vuejs  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs'" tppabs="https://github.com/vuejs" class="nav-link" target="_blank">å®˜æ–¹ä»“åº“</a></li>
+      <li><a href="javascript:if(confirm('https://curated.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://curated.vuejs.org/'" tppabs="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue ä¼˜é€‰</a></li>
+      <li><a href="javascript:if(confirm('https://github.com/vuejs/awesome-vue  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/awesome-vue'" tppabs="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue èµ„æº</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="team.html" tppabs="https://cn.vuejs.org/v2/guide/team.html" class="nav-link team">å›¢é˜Ÿ</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="index-5.htm" tppabs="https://cn.vuejs.org/support-vuejs/" class="nav-link">æ”¯æŒ Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="index-5.htm#One-time-Donations" tppabs="https://cn.vuejs.org/support-vuejs/#One-time-Donations" class="nav-link">ä¸€æ¬¡æ€§èµåŠ©</a></li>
+      <li><a href="index-5.htm#Recurring-Pledges" tppabs="https://cn.vuejs.org/support-vuejs/#Recurring-Pledges" class="nav-link">å‘¨æœŸæ€§èµåŠ©</a></li>
+      <li><a href="javascript:if(confirm('https://vue.threadless.com/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vue.threadless.com/'" tppabs="https://vue.threadless.com/" target="_blank" class="nav-link">T æ¤å•†åº—</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">å¤šè¯­è¨€</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="javascript:if(confirm('https://vuejs.org/v2/guide/list.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vuejs.org/v2/guide/list.html'" tppabs="https://vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="javascript:if(confirm('https://jp.vuejs.org/v2/guide/list.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://jp.vuejs.org/v2/guide/list.html'" tppabs="https://jp.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">æ—¥æœ¬èª</a></li>
+    <li><a href="javascript:if(confirm('https://ru.vuejs.org/v2/guide/list.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://ru.vuejs.org/v2/guide/list.html'" tppabs="https://ru.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">Ğ ÑƒÑÑĞºĞ¸Ğ¹</a></li>
+    <li><a href="javascript:if(confirm('https://kr.vuejs.org/v2/guide/list.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://kr.vuejs.org/v2/guide/list.html'" tppabs="https://kr.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">í•œêµ­ì–´</a></li>
+    <li><a href="javascript:if(confirm('https://br.vuejs.org/v2/guide/list.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://br.vuejs.org/v2/guide/list.html'" tppabs="https://br.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">PortuguÃªs</a></li>
+    <li><a href="javascript:if(confirm('https://fr.vuejs.org/v2/guide/list.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://fr.vuejs.org/v2/guide/list.html'" tppabs="https://fr.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">FranÃ§ais</a></li>
+    <li><a href="javascript:if(confirm('https://vi.vuejs.org/v2/guide/list.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://vi.vuejs.org/v2/guide/list.html'" tppabs="https://vi.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">Tiáº¿ng Viá»‡t</a></li>
+  </ul>
+</li>
+
+<li><a href="javascript:if(confirm('https://github.com/vuejs/cn.vuejs.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/cn.vuejs.org/'" tppabs="https://github.com/vuejs/cn.vuejs.org/" target="_blank" class="nav-link contribute">å‚ä¸ç¿»è¯‘</a></li>
+
+    </ul>
+    <div class="list">
+      <div class="main-sponsor">
+        <span>èµåŠ©è€…</span><br>
+        <a id="main-sponsor-link" target="_blank" style="display: block; margin: 6px 0;">
+          <img id="main-sponsor-image" style="border-radius: 3px;">
+        </a>
+        <script>
+        (function () {
+          var API = 'https://xiaozhuanlan.com/example/baner_settings'
+          var req = new XMLHttpRequest()
+          var data = {
+            "link_url": "https://xiaozhuanlan.com",
+            "img_url": "https://diycode.b0.upaiyun.com/photo/2017/15ebaae7745e70876cf20c0ee93bdc9e.png"
+          }
+          req.onreadystatechange = function () {
+            if (req.readyState == 4) {
+            if (req.status >= 200 && req.status < 300) {
+              try {
+                data = JSON.parse(req.responseText)
+              } catch (e) {}
+            }
+            document.getElementById('main-sponsor-link').href = data.link_url
+            document.getElementById('main-sponsor-image').src = data.img_url
+            }
+          }
+          req.open('GET', API)
+          req.send()
+        })()
+        </script>
+      </div>
+      <a class="become-backer" href="index-5.htm" tppabs="https://cn.vuejs.org/support-vuejs">
+        æˆä¸ºèµåŠ©è€…
+      </a>
+      <h2>
+        
+        æ•™ç¨‹
+        
+          <select class="version-select">
+            <option value="SELF" selected>2.x</option>
+            <option value="v1">1.0</option>
+          </select>
+        
+      </h2>
+      <ul class="menu-root">
+  
+    
+    
+      
+        <li><h3>åŸºç¡€</h3></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="installation-1.html" tppabs="https://cn.vuejs.org/v2/guide/installation.html" class="sidebar-link">å®‰è£…</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="index-37.html" tppabs="https://cn.vuejs.org/v2/guide/index.html" class="sidebar-link">ä»‹ç»</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="instance-1.html" tppabs="https://cn.vuejs.org/v2/guide/instance.html" class="sidebar-link">Vue å®ä¾‹</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="syntax-1.html" tppabs="https://cn.vuejs.org/v2/guide/syntax.html" class="sidebar-link">æ¨¡æ¿è¯­æ³•</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="computed-1.html" tppabs="https://cn.vuejs.org/v2/guide/computed.html" class="sidebar-link">è®¡ç®—å±æ€§å’Œè§‚å¯Ÿè€…</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="class-and-style-1.html" tppabs="https://cn.vuejs.org/v2/guide/class-and-style.html" class="sidebar-link">Class ä¸ Style ç»‘å®š</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="conditional-1.html" tppabs="https://cn.vuejs.org/v2/guide/conditional.html" class="sidebar-link">æ¡ä»¶æ¸²æŸ“</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="list-1.html" tppabs="https://cn.vuejs.org/v2/guide/list.html" class="sidebar-link current">åˆ—è¡¨æ¸²æŸ“</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="events-1.html" tppabs="https://cn.vuejs.org/v2/guide/events.html" class="sidebar-link">äº‹ä»¶å¤„ç†</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="forms-1.html" tppabs="https://cn.vuejs.org/v2/guide/forms.html" class="sidebar-link">è¡¨å•è¾“å…¥ç»‘å®š</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="components-1.html" tppabs="https://cn.vuejs.org/v2/guide/components.html" class="sidebar-link">ç»„ä»¶</a>
+    </li>
+  
+    
+    
+      
+      
+        <li><h3>è¿‡æ¸¡ & åŠ¨ç”»</h3></li>
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="transitions-1.html" tppabs="https://cn.vuejs.org/v2/guide/transitions.html" class="sidebar-link">è¿›å…¥/ç¦»å¼€ & åˆ—è¡¨è¿‡æ¸¡</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="transitioning-state-1.html" tppabs="https://cn.vuejs.org/v2/guide/transitioning-state.html" class="sidebar-link">çŠ¶æ€è¿‡æ¸¡</a>
+    </li>
+  
+    
+    
+      
+      
+      
+        <li><h3>å¯å¤ç”¨æ€§ & ç»„åˆ</h3></li>
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="javascript:if(confirm('https://cn.vuejs.org/v2/guide/mixins.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://cn.vuejs.org/v2/guide/mixins.html'" tppabs="https://cn.vuejs.org/v2/guide/mixins.html" class="sidebar-link">æ··åˆ</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="custom-directive-1.html" tppabs="https://cn.vuejs.org/v2/guide/custom-directive.html" class="sidebar-link">è‡ªå®šä¹‰æŒ‡ä»¤</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="render-function-1.html" tppabs="https://cn.vuejs.org/v2/guide/render-function.html" class="sidebar-link">æ¸²æŸ“å‡½æ•° & JSX</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="plugins-1.html" tppabs="https://cn.vuejs.org/v2/guide/plugins.html" class="sidebar-link">æ’ä»¶</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="filters.html" tppabs="https://cn.vuejs.org/v2/guide/filters.html" class="sidebar-link">è¿‡æ»¤å™¨</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+        <li><h3>å·¥å…·</h3></li>
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="deployment-1.html" tppabs="https://cn.vuejs.org/v2/guide/deployment.html" class="sidebar-link">ç”Ÿäº§ç¯å¢ƒéƒ¨ç½²</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="single-file-components-1.html" tppabs="https://cn.vuejs.org/v2/guide/single-file-components.html" class="sidebar-link">å•æ–‡ä»¶ç»„ä»¶</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="unit-testing-1.html" tppabs="https://cn.vuejs.org/v2/guide/unit-testing.html" class="sidebar-link">å•å…ƒæµ‹è¯•</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="typescript.html" tppabs="https://cn.vuejs.org/v2/guide/typescript.html" class="sidebar-link">TypeScript æ”¯æŒ</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+        <li><h3>è§„æ¨¡åŒ–</h3></li>
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="routing-1.html" tppabs="https://cn.vuejs.org/v2/guide/routing.html" class="sidebar-link">è·¯ç”±</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="state-management-1.html" tppabs="https://cn.vuejs.org/v2/guide/state-management.html" class="sidebar-link">çŠ¶æ€ç®¡ç†</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="ssr-1.html" tppabs="https://cn.vuejs.org/v2/guide/ssr.html" class="sidebar-link">æœåŠ¡ç«¯æ¸²æŸ“</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+        <li><h3>å†…åœ¨</h3></li>
+      
+      
+      
+    
+    
+    <li>
+      <a href="reactivity-1.html" tppabs="https://cn.vuejs.org/v2/guide/reactivity.html" class="sidebar-link">æ·±å…¥å“åº”å¼åŸç†</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>è¿ç§»</h3></li>
+      
+      
+    
+    
+    <li>
+      <a href="migration-1.html" tppabs="https://cn.vuejs.org/v2/guide/migration.html" class="sidebar-link">ä» Vue 1.x è¿ç§»</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="migration-vue-router-1.html" tppabs="https://cn.vuejs.org/v2/guide/migration-vue-router.html" class="sidebar-link">ä» Vue Router 0.7.x è¿ç§»</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="migration-vuex-1.html" tppabs="https://cn.vuejs.org/v2/guide/migration-vuex.html" class="sidebar-link">ä» Vuex 0.6.x è¿ç§»åˆ° 1.0</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>æ›´å¤š</h3></li>
+      
+    
+    
+    <li>
+      <a href="comparison-1.html" tppabs="https://cn.vuejs.org/v2/guide/comparison.html" class="sidebar-link">å¯¹æ¯”å…¶ä»–æ¡†æ¶</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="join-1.html" tppabs="https://cn.vuejs.org/v2/guide/join.html" class="sidebar-link">åŠ å…¥ Vue.js ç¤¾åŒº</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    
+    <li>
+      <a href="team.html" tppabs="https://cn.vuejs.org/v2/guide/team.html" class="sidebar-link">è®¤è¯†å›¢é˜Ÿ</a>
+    </li>
+  
+  
+</ul>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="content guide with-sidebar list-guide">
+  
+    
+      <div id="ad">
+  <a href="javascript:if(confirm('https://time.geekbang.org/column/intro/48?utm_source=website&utm_medium=vue&utm_campaign=201801chenhao&utm_content=chenhaobanner  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://time.geekbang.org/column/intro/48?utm_source=website&utm_medium=vue&utm_campaign=201801chenhao&utm_content=chenhaobanner'" tppabs="https://time.geekbang.org/column/intro/48?utm_source=website&utm_medium=vue&utm_campaign=201801chenhao&utm_content=chenhaobanner" target="_blank" rel="nofollow">
+    <img src="geekbang3.gif" tppabs="https://cn.vuejs.org/images/geekbang3.gif" alt="æå®¢æ—¶é—´">
+  </a>
+</div>
+
+    
+  
+  
+    <h1>åˆ—è¡¨æ¸²æŸ“</h1>
+  
+  
+    <h2 id="ç”¨-v-for-æŠŠä¸€ä¸ªæ•°ç»„å¯¹åº”ä¸ºä¸€ç»„å…ƒç´ "><a href="#ç”¨-v-for-æŠŠä¸€ä¸ªæ•°ç»„å¯¹åº”ä¸ºä¸€ç»„å…ƒç´ " class="headerlink" title="ç”¨ v-for æŠŠä¸€ä¸ªæ•°ç»„å¯¹åº”ä¸ºä¸€ç»„å…ƒç´ "></a>ç”¨ <code>v-for</code> æŠŠä¸€ä¸ªæ•°ç»„å¯¹åº”ä¸ºä¸€ç»„å…ƒç´ </h2><p>æˆ‘ä»¬ç”¨ <code>v-for</code> æŒ‡ä»¤æ ¹æ®ä¸€ç»„æ•°ç»„çš„é€‰é¡¹åˆ—è¡¨è¿›è¡Œæ¸²æŸ“ã€‚<code>v-for</code> æŒ‡ä»¤éœ€è¦ä½¿ç”¨ <code>item in items</code> å½¢å¼çš„ç‰¹æ®Šè¯­æ³•ï¼Œ<code>items</code> æ˜¯æºæ•°æ®æ•°ç»„å¹¶ä¸” <code>item</code> æ˜¯æ•°ç»„å…ƒç´ è¿­ä»£çš„åˆ«åã€‚</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"example-1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></span><br><span class="line">    &#123;&#123; item.message &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> example1 = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-1'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    items: [</span><br><span class="line">      &#123; <span class="attr">message</span>: <span class="string">'Foo'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">message</span>: <span class="string">'Bar'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>ç»“æœï¼š</p>
+
+<ul id="example-1" class="demo">
+  <li v-for="item in items">
+    {{item.message}}
+  </li>
+</ul>
+<script>
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  },
+  watch: {
+    items: function () {
+      smoothScroll.animateScroll(document.querySelector('#example-1'))
+    }
+  }
+})
+</script>
+
+<p>åœ¨ <code>v-for</code> å—ä¸­ï¼Œæˆ‘ä»¬æ‹¥æœ‰å¯¹çˆ¶ä½œç”¨åŸŸå±æ€§çš„å®Œå…¨è®¿é—®æƒé™ã€‚<code>v-for</code> è¿˜æ”¯æŒä¸€ä¸ªå¯é€‰çš„ç¬¬äºŒä¸ªå‚æ•°ä¸ºå½“å‰é¡¹çš„ç´¢å¼•ã€‚</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"example-2"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span>&gt;</span></span><br><span class="line">    &#123;&#123; parentMessage &#125;&#125; - &#123;&#123; index &#125;&#125; - &#123;&#123; item.message &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> example2 = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-2'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    parentMessage: <span class="string">'Parent'</span>,</span><br><span class="line">    items: [</span><br><span class="line">      &#123; <span class="attr">message</span>: <span class="string">'Foo'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">message</span>: <span class="string">'Bar'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>ç»“æœï¼š</p>
+
+<ul id="example-2" class="demo">
+  <li v-for="(item, index) in items">
+    {{ parentMessage }} - {{ index }} - {{ item.message }}
+  </li>
+</ul>
+<script>
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    parentMessage: 'Parent',
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  },
+  watch: {
+    items: function () {
+      smoothScroll.animateScroll(document.querySelector('#example-2'))
+    }
+  }
+})
+</script>
+
+<p>ä½ ä¹Ÿå¯ä»¥ç”¨ <code>of</code> æ›¿ä»£ <code>in</code> ä½œä¸ºåˆ†éš”ç¬¦ï¼Œå› ä¸ºå®ƒæ˜¯æœ€æ¥è¿‘ JavaScript è¿­ä»£å™¨çš„è¯­æ³•ï¼š</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item of items"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="ä¸€ä¸ªå¯¹è±¡çš„-v-for"><a href="#ä¸€ä¸ªå¯¹è±¡çš„-v-for" class="headerlink" title="ä¸€ä¸ªå¯¹è±¡çš„ v-for"></a>ä¸€ä¸ªå¯¹è±¡çš„ <code>v-for</code></h2><p>ä½ ä¹Ÿå¯ä»¥ç”¨ <code>v-for</code> é€šè¿‡ä¸€ä¸ªå¯¹è±¡çš„å±æ€§æ¥è¿­ä»£ã€‚</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"v-for-object"</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"value in object"</span>&gt;</span></span><br><span class="line">    &#123;&#123; value &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#v-for-object'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    object: &#123;</span><br><span class="line">      firstName: <span class="string">'John'</span>,</span><br><span class="line">      lastName: <span class="string">'Doe'</span>,</span><br><span class="line">      age: <span class="number">30</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>ç»“æœï¼š</p>
+
+<ul id="v-for-object" class="demo">
+  <li v-for="value in object">
+    {{ value }}
+  </li>
+</ul>
+<script>
+new Vue({
+  el: '#v-for-object',
+  data: {
+    object: {
+      firstName: 'John',
+      lastName: 'Doe',
+      age: 30
+    }
+  }
+})
+</script>
+
+<p>ä½ ä¹Ÿå¯ä»¥æä¾›ç¬¬äºŒä¸ªçš„å‚æ•°ä¸ºé”®åï¼š</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(value, key) in object"</span>&gt;</span></span><br><span class="line">  &#123;&#123; key &#125;&#125;: &#123;&#123; value &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<div id="v-for-object-value-key" class="demo">
+  <div v-for="(value, key) in object">
+    {{ key }}: {{ value }}
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#v-for-object-value-key',
+  data: {
+    object: {
+      firstName: 'John',
+      lastName: 'Doe',
+      age: 30
+    }
+  }
+})
+</script>
+
+<p>ç¬¬ä¸‰ä¸ªå‚æ•°ä¸ºç´¢å¼•ï¼š</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(value, key, index) in object"</span>&gt;</span></span><br><span class="line">  &#123;&#123; index &#125;&#125;. &#123;&#123; key &#125;&#125;: &#123;&#123; value &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<div id="v-for-object-value-key-index" class="demo">
+  <div v-for="(value, key, index) in object">
+    {{ index }}. {{ key }}: {{ value }}
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#v-for-object-value-key-index',
+  data: {
+    object: {
+      firstName: 'John',
+      lastName: 'Doe',
+      age: 30
+    }
+  }
+})
+</script>
+
+<p class="tip">åœ¨éå†å¯¹è±¡æ—¶ï¼Œæ˜¯æŒ‰ <code>Object.keys()</code> çš„ç»“æœéå†ï¼Œä½†æ˜¯ä¸èƒ½ä¿è¯å®ƒçš„ç»“æœåœ¨ä¸åŒçš„ JavaScript å¼•æ“ä¸‹æ˜¯ä¸€è‡´çš„ã€‚</p>
+
+<h2 id="key"><a href="#key" class="headerlink" title="key"></a><code>key</code></h2><p>å½“ Vue.js ç”¨ <code>v-for</code> æ­£åœ¨æ›´æ–°å·²æ¸²æŸ“è¿‡çš„å…ƒç´ åˆ—è¡¨æ—¶ï¼Œå®ƒé»˜è®¤ç”¨â€œå°±åœ°å¤ç”¨â€ç­–ç•¥ã€‚å¦‚æœæ•°æ®é¡¹çš„é¡ºåºè¢«æ”¹å˜ï¼ŒVue å°†ä¸ä¼šç§»åŠ¨ DOM å…ƒç´ æ¥åŒ¹é…æ•°æ®é¡¹çš„é¡ºåºï¼Œ è€Œæ˜¯ç®€å•å¤ç”¨æ­¤å¤„æ¯ä¸ªå…ƒç´ ï¼Œå¹¶ä¸”ç¡®ä¿å®ƒåœ¨ç‰¹å®šç´¢å¼•ä¸‹æ˜¾ç¤ºå·²è¢«æ¸²æŸ“è¿‡çš„æ¯ä¸ªå…ƒç´ ã€‚è¿™ä¸ªç±»ä¼¼ Vue 1.x çš„ <code>track-by=&quot;$index&quot;</code> ã€‚</p>
+<p>è¿™ä¸ªé»˜è®¤çš„æ¨¡å¼æ˜¯é«˜æ•ˆçš„ï¼Œä½†æ˜¯åªé€‚ç”¨äº<strong>ä¸ä¾èµ–å­ç»„ä»¶çŠ¶æ€æˆ–ä¸´æ—¶ DOM çŠ¶æ€ (ä¾‹å¦‚ï¼šè¡¨å•è¾“å…¥å€¼) çš„åˆ—è¡¨æ¸²æŸ“è¾“å‡º</strong>ã€‚</p>
+<p>ä¸ºäº†ç»™ Vue ä¸€ä¸ªæç¤ºï¼Œä»¥ä¾¿å®ƒèƒ½è·Ÿè¸ªæ¯ä¸ªèŠ‚ç‚¹çš„èº«ä»½ï¼Œä»è€Œé‡ç”¨å’Œé‡æ–°æ’åºç°æœ‰å…ƒç´ ï¼Œä½ éœ€è¦ä¸ºæ¯é¡¹æä¾›ä¸€ä¸ªå”¯ä¸€ <code>key</code> å±æ€§ã€‚ç†æƒ³çš„ <code>key</code> å€¼æ˜¯æ¯é¡¹éƒ½æœ‰çš„ä¸”å”¯ä¸€çš„ idã€‚è¿™ä¸ªç‰¹æ®Šçš„å±æ€§ç›¸å½“äº Vue 1.x çš„ <code>track-by</code> ï¼Œä½†å®ƒçš„å·¥ä½œæ–¹å¼ç±»ä¼¼äºä¸€ä¸ªå±æ€§ï¼Œæ‰€ä»¥ä½ éœ€è¦ç”¨ <code>v-bind</code> æ¥ç»‘å®šåŠ¨æ€å€¼ (åœ¨è¿™é‡Œä½¿ç”¨ç®€å†™)ï¼š</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- å†…å®¹ --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>å»ºè®®å°½å¯èƒ½åœ¨ä½¿ç”¨ <code>v-for</code> æ—¶æä¾› <code>key</code>ï¼Œé™¤ééå†è¾“å‡ºçš„ DOM å†…å®¹éå¸¸ç®€å•ï¼Œæˆ–è€…æ˜¯åˆ»æ„ä¾èµ–é»˜è®¤è¡Œä¸ºä»¥è·å–æ€§èƒ½ä¸Šçš„æå‡ã€‚</p>
+<p>å› ä¸ºå®ƒæ˜¯ Vue è¯†åˆ«èŠ‚ç‚¹çš„ä¸€ä¸ªé€šç”¨æœºåˆ¶ï¼Œ<code>key</code> å¹¶ä¸ä¸ <code>v-for</code> ç‰¹åˆ«å…³è”ï¼Œkey è¿˜å…·æœ‰å…¶ä»–ç”¨é€”ï¼Œæˆ‘ä»¬å°†åœ¨åé¢çš„æŒ‡å—ä¸­çœ‹åˆ°å…¶ä»–ç”¨é€”ã€‚</p>
+<h2 id="æ•°ç»„æ›´æ–°æ£€æµ‹"><a href="#æ•°ç»„æ›´æ–°æ£€æµ‹" class="headerlink" title="æ•°ç»„æ›´æ–°æ£€æµ‹"></a>æ•°ç»„æ›´æ–°æ£€æµ‹</h2><h3 id="å˜å¼‚æ–¹æ³•"><a href="#å˜å¼‚æ–¹æ³•" class="headerlink" title="å˜å¼‚æ–¹æ³•"></a>å˜å¼‚æ–¹æ³•</h3><p>Vue åŒ…å«ä¸€ç»„è§‚å¯Ÿæ•°ç»„çš„å˜å¼‚æ–¹æ³•ï¼Œæ‰€ä»¥å®ƒä»¬ä¹Ÿå°†ä¼šè§¦å‘è§†å›¾æ›´æ–°ã€‚è¿™äº›æ–¹æ³•å¦‚ä¸‹ï¼š</p>
+<ul>
+<li><code>push()</code></li>
+<li><code>pop()</code></li>
+<li><code>shift()</code></li>
+<li><code>unshift()</code></li>
+<li><code>splice()</code></li>
+<li><code>sort()</code></li>
+<li><code>reverse()</code></li>
+</ul>
+<p>ä½ æ‰“å¼€æ§åˆ¶å°ï¼Œç„¶åç”¨å‰é¢ä¾‹å­çš„ <code>items</code> æ•°ç»„è°ƒç”¨å˜å¼‚æ–¹æ³•ï¼š<code>example1.items.push({ message: &#39;Baz&#39; })</code> ã€‚</p>
+<h3 id="æ›¿æ¢æ•°ç»„"><a href="#æ›¿æ¢æ•°ç»„" class="headerlink" title="æ›¿æ¢æ•°ç»„"></a>æ›¿æ¢æ•°ç»„</h3><p>å˜å¼‚æ–¹æ³• (mutation method)ï¼Œé¡¾åæ€ä¹‰ï¼Œä¼šæ”¹å˜è¢«è¿™äº›æ–¹æ³•è°ƒç”¨çš„åŸå§‹æ•°ç»„ã€‚ç›¸æ¯”ä¹‹ä¸‹ï¼Œä¹Ÿæœ‰éå˜å¼‚ (non-mutating method) æ–¹æ³•ï¼Œä¾‹å¦‚ï¼š<code>filter()</code>, <code>concat()</code> å’Œ <code>slice()</code> ã€‚è¿™äº›ä¸ä¼šæ”¹å˜åŸå§‹æ•°ç»„ï¼Œä½†<strong>æ€»æ˜¯è¿”å›ä¸€ä¸ªæ–°æ•°ç»„</strong>ã€‚å½“ä½¿ç”¨éå˜å¼‚æ–¹æ³•æ—¶ï¼Œå¯ä»¥ç”¨æ–°æ•°ç»„æ›¿æ¢æ—§æ•°ç»„ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">example1.items = example1.items.filter(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> item.message.match(<span class="regexp">/Foo/</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>ä½ å¯èƒ½è®¤ä¸ºè¿™å°†å¯¼è‡´ Vue ä¸¢å¼ƒç°æœ‰ DOM å¹¶é‡æ–°æ¸²æŸ“æ•´ä¸ªåˆ—è¡¨ã€‚å¹¸è¿çš„æ˜¯ï¼Œäº‹å®å¹¶éå¦‚æ­¤ã€‚Vue ä¸ºäº†ä½¿å¾— DOM å…ƒç´ å¾—åˆ°æœ€å¤§èŒƒå›´çš„é‡ç”¨è€Œå®ç°äº†ä¸€äº›æ™ºèƒ½çš„ã€å¯å‘å¼çš„æ–¹æ³•ï¼Œæ‰€ä»¥ç”¨ä¸€ä¸ªå«æœ‰ç›¸åŒå…ƒç´ çš„æ•°ç»„å»æ›¿æ¢åŸæ¥çš„æ•°ç»„æ˜¯éå¸¸é«˜æ•ˆçš„æ“ä½œã€‚</p>
+<h3 id="æ³¨æ„äº‹é¡¹"><a href="#æ³¨æ„äº‹é¡¹" class="headerlink" title="æ³¨æ„äº‹é¡¹"></a>æ³¨æ„äº‹é¡¹</h3><p>ç”±äº JavaScript çš„é™åˆ¶ï¼ŒVue ä¸èƒ½æ£€æµ‹ä»¥ä¸‹å˜åŠ¨çš„æ•°ç»„ï¼š</p>
+<ol>
+<li>å½“ä½ åˆ©ç”¨ç´¢å¼•ç›´æ¥è®¾ç½®ä¸€ä¸ªé¡¹æ—¶ï¼Œä¾‹å¦‚ï¼š<code>vm.items[indexOfItem] = newValue</code></li>
+<li>å½“ä½ ä¿®æ”¹æ•°ç»„çš„é•¿åº¦æ—¶ï¼Œä¾‹å¦‚ï¼š<code>vm.items.length = newLength</code></li>
+</ol>
+<p>ä¸ºäº†è§£å†³ç¬¬ä¸€ç±»é—®é¢˜ï¼Œä»¥ä¸‹ä¸¤ç§æ–¹å¼éƒ½å¯ä»¥å®ç°å’Œ <code>vm.items[indexOfItem] = newValue</code> ç›¸åŒçš„æ•ˆæœï¼ŒåŒæ—¶ä¹Ÿå°†è§¦å‘çŠ¶æ€æ›´æ–°ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Vue.set</span></span><br><span class="line">Vue.set(example1.items, indexOfItem, newValue)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Array.prototype.splice</span></span><br><span class="line">example1.items.splice(indexOfItem, <span class="number">1</span>, newValue)</span><br></pre></td></tr></table></figure>
+<p>ä¸ºäº†è§£å†³ç¬¬äºŒç±»é—®é¢˜ï¼Œä½ å¯ä»¥ä½¿ç”¨ <code>splice</code>ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">example1.items.splice(newLength)</span><br></pre></td></tr></table></figure>
+<h2 id="å¯¹è±¡æ›´æ”¹æ£€æµ‹æ³¨æ„äº‹é¡¹"><a href="#å¯¹è±¡æ›´æ”¹æ£€æµ‹æ³¨æ„äº‹é¡¹" class="headerlink" title="å¯¹è±¡æ›´æ”¹æ£€æµ‹æ³¨æ„äº‹é¡¹"></a>å¯¹è±¡æ›´æ”¹æ£€æµ‹æ³¨æ„äº‹é¡¹</h2><p>è¿˜æ˜¯ç”±äº JavaScript çš„é™åˆ¶ï¼Œ<strong>Vue ä¸èƒ½æ£€æµ‹å¯¹è±¡å±æ€§çš„æ·»åŠ æˆ–åˆ é™¤</strong>ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    a: <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// `vm.a` ç°åœ¨æ˜¯å“åº”å¼çš„</span></span><br><span class="line"></span><br><span class="line">vm.b = <span class="number">2</span></span><br><span class="line"><span class="comment">// `vm.b` ä¸æ˜¯å“åº”å¼çš„</span></span><br></pre></td></tr></table></figure>
+<p>å¯¹äºå·²ç»åˆ›å»ºçš„å®ä¾‹ï¼ŒVue ä¸èƒ½åŠ¨æ€æ·»åŠ æ ¹çº§åˆ«çš„å“åº”å¼å±æ€§ã€‚ä½†æ˜¯ï¼Œå¯ä»¥ä½¿ç”¨ <code>Vue.set(object, key, value)</code> æ–¹æ³•å‘åµŒå¥—å¯¹è±¡æ·»åŠ å“åº”å¼å±æ€§ã€‚ä¾‹å¦‚ï¼Œå¯¹äºï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    userProfile: &#123;</span><br><span class="line">      name: <span class="string">'Anika'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>ä½ å¯ä»¥æ·»åŠ ä¸€ä¸ªæ–°çš„ <code>age</code> å±æ€§åˆ°åµŒå¥—çš„ <code>userProfile</code> å¯¹è±¡ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.set(vm.userProfile, <span class="string">'age'</span>, <span class="number">27</span>)</span><br></pre></td></tr></table></figure>
+<p>ä½ è¿˜å¯ä»¥ä½¿ç”¨ <code>vm.$set</code> å®ä¾‹æ–¹æ³•ï¼Œå®ƒåªæ˜¯å…¨å±€ <code>Vue.set</code> çš„åˆ«åï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.$set(<span class="keyword">this</span>.userProfile, <span class="string">'age'</span>, <span class="number">27</span>)</span><br></pre></td></tr></table></figure>
+<p>æœ‰æ—¶ä½ å¯èƒ½éœ€è¦ä¸ºå·²æœ‰å¯¹è±¡èµ‹äºˆå¤šä¸ªæ–°å±æ€§ï¼Œæ¯”å¦‚ä½¿ç”¨ <code>Object.assign()</code> æˆ– <code>_.extend()</code>ã€‚åœ¨è¿™ç§æƒ…å†µä¸‹ï¼Œä½ åº”è¯¥ç”¨ä¸¤ä¸ªå¯¹è±¡çš„å±æ€§åˆ›å»ºä¸€ä¸ªæ–°çš„å¯¹è±¡ã€‚æ‰€ä»¥ï¼Œå¦‚æœä½ æƒ³æ·»åŠ æ–°çš„å“åº”å¼å±æ€§ï¼Œä¸è¦åƒè¿™æ ·ï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Object</span>.assign(<span class="keyword">this</span>.userProfile, &#123;</span><br><span class="line">  age: <span class="number">27</span>,</span><br><span class="line">  favoriteColor: <span class="string">'Vue Green'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>ä½ åº”è¯¥è¿™æ ·åšï¼š</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.userProfile = <span class="built_in">Object</span>.assign(&#123;&#125;, <span class="keyword">this</span>.userProfile, &#123;</span><br><span class="line">  age: <span class="number">27</span>,</span><br><span class="line">  favoriteColor: <span class="string">'Vue Green'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="æ˜¾ç¤ºè¿‡æ»¤-æ’åºç»“æœ"><a href="#æ˜¾ç¤ºè¿‡æ»¤-æ’åºç»“æœ" class="headerlink" title="æ˜¾ç¤ºè¿‡æ»¤/æ’åºç»“æœ"></a>æ˜¾ç¤ºè¿‡æ»¤/æ’åºç»“æœ</h2><p>æœ‰æ—¶ï¼Œæˆ‘ä»¬æƒ³è¦æ˜¾ç¤ºä¸€ä¸ªæ•°ç»„çš„è¿‡æ»¤æˆ–æ’åºå‰¯æœ¬ï¼Œè€Œä¸å®é™…æ”¹å˜æˆ–é‡ç½®åŸå§‹æ•°æ®ã€‚åœ¨è¿™ç§æƒ…å†µä¸‹ï¼Œå¯ä»¥åˆ›å»ºè¿”å›è¿‡æ»¤æˆ–æ’åºæ•°ç»„çš„è®¡ç®—å±æ€§ã€‚</p>
+<p>ä¾‹å¦‚ï¼š</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"n in evenNumbers"</span>&gt;</span>&#123;&#123; n &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  numbers: [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> ]</span><br><span class="line">&#125;,</span><br><span class="line">computed: &#123;</span><br><span class="line">  evenNumbers: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.numbers.filter(<span class="function"><span class="keyword">function</span> (<span class="params">number</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> number % <span class="number">2</span> === <span class="number">0</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>åœ¨è®¡ç®—å±æ€§ä¸é€‚ç”¨çš„æƒ…å†µä¸‹ (ä¾‹å¦‚ï¼Œåœ¨åµŒå¥— <code>v-for</code> å¾ªç¯ä¸­) ä½ å¯ä»¥ä½¿ç”¨ä¸€ä¸ª method æ–¹æ³•ï¼š</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"n in even(numbers)"</span>&gt;</span>&#123;&#123; n &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  numbers: [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> ]</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  even: <span class="function"><span class="keyword">function</span> (<span class="params">numbers</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> numbers.filter(<span class="function"><span class="keyword">function</span> (<span class="params">number</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> number % <span class="number">2</span> === <span class="number">0</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="ä¸€æ®µå–å€¼èŒƒå›´çš„-v-for"><a href="#ä¸€æ®µå–å€¼èŒƒå›´çš„-v-for" class="headerlink" title="ä¸€æ®µå–å€¼èŒƒå›´çš„ v-for"></a>ä¸€æ®µå–å€¼èŒƒå›´çš„ <code>v-for</code></h2><p><code>v-for</code> ä¹Ÿå¯ä»¥å–æ•´æ•°ã€‚åœ¨è¿™ç§æƒ…å†µä¸‹ï¼Œå®ƒå°†é‡å¤å¤šæ¬¡æ¨¡æ¿ã€‚</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"n in 10"</span>&gt;</span>&#123;&#123; n &#125;&#125; <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>ç»“æœï¼š</p>
+
+<div id="range" class="demo">
+  <span v-for="n in 10">{{ n }} </span>
+</div>
+<script>
+  new Vue({ el: '#range' })
+</script>
+
+<h2 id="v-for-on-a-lt-template-gt"><a href="#v-for-on-a-lt-template-gt" class="headerlink" title="v-for on a &lt;template&gt;"></a><code>v-for</code> on a <code>&lt;template&gt;</code></h2><p>ç±»ä¼¼äº <code>v-if</code>ï¼Œä½ ä¹Ÿå¯ä»¥åˆ©ç”¨å¸¦æœ‰ <code>v-for</code> çš„ <code>&lt;template&gt;</code> æ¸²æŸ“å¤šä¸ªå…ƒç´ ã€‚æ¯”å¦‚ï¼š</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;&#123; item.msg &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"divider"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="v-for-with-v-if"><a href="#v-for-with-v-if" class="headerlink" title="v-for with v-if"></a><code>v-for</code> with <code>v-if</code></h2><p>å½“å®ƒä»¬å¤„äºåŒä¸€èŠ‚ç‚¹ï¼Œ<code>v-for</code> çš„ä¼˜å…ˆçº§æ¯” <code>v-if</code> æ›´é«˜ï¼Œè¿™æ„å‘³ç€ <code>v-if</code> å°†åˆ†åˆ«é‡å¤è¿è¡Œäºæ¯ä¸ª <code>v-for</code> å¾ªç¯ä¸­ã€‚å½“ä½ æƒ³ä¸ºä»…æœ‰çš„<em>ä¸€äº›</em>é¡¹æ¸²æŸ“èŠ‚ç‚¹æ—¶ï¼Œè¿™ç§ä¼˜å…ˆçº§çš„æœºåˆ¶ä¼šååˆ†æœ‰ç”¨ï¼Œå¦‚ä¸‹ï¼š</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"todo in todos"</span> <span class="attr">v-if</span>=<span class="string">"!todo.isComplete"</span>&gt;</span></span><br><span class="line">  &#123;&#123; todo &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>ä¸Šé¢çš„ä»£ç åªä¼ é€’äº†æœªå®Œæˆçš„ todosã€‚</p>
+<p>è€Œå¦‚æœä½ çš„ç›®çš„æ˜¯æœ‰æ¡ä»¶åœ°è·³è¿‡å¾ªç¯çš„æ‰§è¡Œï¼Œé‚£ä¹ˆå¯ä»¥å°† <code>v-if</code> ç½®äºå¤–å±‚å…ƒç´  (æˆ– <a href="conditional-1.html#åœ¨-lt-template-gt-ä¸­é…åˆ-v-if-æ¡ä»¶æ¸²æŸ“ä¸€æ•´ç»„" tppabs="https://cn.vuejs.org/v2/guide/conditional.html#åœ¨-lt-template-gt-ä¸­é…åˆ-v-if-æ¡ä»¶æ¸²æŸ“ä¸€æ•´ç»„"><code>&lt;template&gt;</code></a>)ä¸Šã€‚å¦‚ï¼š</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">v-if</span>=<span class="string">"todos.length"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"todo in todos"</span>&gt;</span></span><br><span class="line">    &#123;&#123; todo &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-else</span>&gt;</span>No todos left!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="ä¸€ä¸ªç»„ä»¶çš„-v-for"><a href="#ä¸€ä¸ªç»„ä»¶çš„-v-for" class="headerlink" title="ä¸€ä¸ªç»„ä»¶çš„ v-for"></a>ä¸€ä¸ªç»„ä»¶çš„ <code>v-for</code></h2><blockquote>
+<p>äº†è§£ç»„ä»¶ç›¸å…³çŸ¥è¯†ï¼ŒæŸ¥çœ‹ <a href="components-1.html" tppabs="https://cn.vuejs.org/v2/guide/components.html">ç»„ä»¶</a>ã€‚å®Œå…¨å¯ä»¥å…ˆè·³è¿‡å®ƒï¼Œä»¥åå†å›æ¥æŸ¥çœ‹ã€‚</p>
+</blockquote>
+<p>åœ¨è‡ªå®šä¹‰ç»„ä»¶é‡Œï¼Œä½ å¯ä»¥åƒä»»ä½•æ™®é€šå…ƒç´ ä¸€æ ·ç”¨ <code>v-for</code> ã€‚</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>2.2.0+ çš„ç‰ˆæœ¬é‡Œï¼Œå½“åœ¨ç»„ä»¶ä¸­ä½¿ç”¨ <code>v-for</code> æ—¶ï¼Œ<code>key</code> ç°åœ¨æ˜¯å¿…é¡»çš„ã€‚</p>
+</blockquote>
+<p>ç„¶è€Œï¼Œä»»ä½•æ•°æ®éƒ½ä¸ä¼šè¢«è‡ªåŠ¨ä¼ é€’åˆ°ç»„ä»¶é‡Œï¼Œå› ä¸ºç»„ä»¶æœ‰è‡ªå·±ç‹¬ç«‹çš„ä½œç”¨åŸŸã€‚ä¸ºäº†æŠŠè¿­ä»£æ•°æ®ä¼ é€’åˆ°ç»„ä»¶é‡Œï¼Œæˆ‘ä»¬è¦ç”¨ <code>props</code> ï¼š</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:item</span>=<span class="string">"item"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:index</span>=<span class="string">"index"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:key</span>=<span class="string">"item.id"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>ä¸è‡ªåŠ¨å°† <code>item</code> æ³¨å…¥åˆ°ç»„ä»¶é‡Œçš„åŸå› æ˜¯ï¼Œè¿™ä¼šä½¿å¾—ç»„ä»¶ä¸ <code>v-for</code> çš„è¿ä½œç´§å¯†è€¦åˆã€‚æ˜ç¡®ç»„ä»¶æ•°æ®çš„æ¥æºèƒ½å¤Ÿä½¿ç»„ä»¶åœ¨å…¶ä»–åœºåˆé‡å¤ä½¿ç”¨ã€‚</p>
+<p>ä¸‹é¢æ˜¯ä¸€ä¸ªç®€å•çš„ todo list çš„å®Œæ•´ä¾‹å­ï¼š</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"todo-list-example"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-model</span>=<span class="string">"newTodoText"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-on:keyup.enter</span>=<span class="string">"addNewTodo"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">placeholder</span>=<span class="string">"Add a todo"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span></span></span><br><span class="line"><span class="tag">      <span class="attr">is</span>=<span class="string">"todo-item"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-for</span>=<span class="string">"(todo, index) in todos"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-bind:key</span>=<span class="string">"todo.id"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-bind:title</span>=<span class="string">"todo.title"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-on:remove</span>=<span class="string">"todos.splice(index, 1)"</span></span></span><br><span class="line"><span class="tag">    &gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p class="tip">æ³¨æ„è¿™é‡Œçš„ <code>is=&quot;todo-item&quot;</code> å±æ€§ã€‚è¿™ç§åšæ³•åœ¨ä½¿ç”¨ DOM æ¨¡æ¿æ—¶æ˜¯ååˆ†å¿…è¦çš„ï¼Œå› ä¸ºåœ¨ <code>&lt;ul&gt;</code> å…ƒç´ å†…åªæœ‰ <code>&lt;li&gt;</code> å…ƒç´ ä¼šè¢«çœ‹ä½œæœ‰æ•ˆå†…å®¹ã€‚è¿™æ ·åšå®ç°çš„æ•ˆæœä¸ <code>&lt;todo-item&gt;</code> ç›¸åŒï¼Œä½†æ˜¯å¯ä»¥é¿å¼€ä¸€äº›æ½œåœ¨çš„æµè§ˆå™¨è§£æé”™è¯¯ã€‚æŸ¥çœ‹ <a href="components-1.html#DOM-æ¨¡æ¿è§£æè¯´æ˜" tppabs="https://cn.vuejs.org/v2/guide/components.html#DOM-æ¨¡æ¿è§£æè¯´æ˜">DOM æ¨¡æ¿è§£æè¯´æ˜</a> æ¥äº†è§£æ›´å¤šä¿¡æ¯ã€‚</p>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'todo-item'</span>, &#123;</span><br><span class="line">  template: <span class="string">'\</span></span><br><span class="line"><span class="string">    &lt;li&gt;\</span></span><br><span class="line"><span class="string">      &#123;&#123; title &#125;&#125;\</span></span><br><span class="line"><span class="string">      &lt;button v-on:click="$emit(\'remove\')"&gt;X&lt;/button&gt;\</span></span><br><span class="line"><span class="string">    &lt;/li&gt;\</span></span><br><span class="line"><span class="string">  '</span>,</span><br><span class="line">  props: [<span class="string">'title'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#todo-list-example'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    newTodoText: <span class="string">''</span>,</span><br><span class="line">    todos: [</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="number">1</span>,</span><br><span class="line">        title: <span class="string">'Do the dishes'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="number">2</span>,</span><br><span class="line">        title: <span class="string">'Take out the trash'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="number">3</span>,</span><br><span class="line">        title: <span class="string">'Mow the lawn'</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    nextTodoId: <span class="number">4</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    addNewTodo: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.todos.push(&#123;</span><br><span class="line">        id: <span class="keyword">this</span>.nextTodoId++,</span><br><span class="line">        title: <span class="keyword">this</span>.newTodoText</span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">this</span>.newTodoText = <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<div id="todo-list-example" class="demo">
+  <input v-model="newTodoText" v-on:keyup.enter="addNewTodo" placeholder="Add a todo">
+  <ul>
+    <li is="todo-item" v-for="(todo, index) in todos" v-bind:key="todo.id" v-bind:title="todo.title" v-on:remove="todos.splice(index, 1)"></li>
+  </ul>
+</div>
+<script>
+Vue.component('todo-item', {
+  template: '\
+    <li>\
+      {{ title }}\
+      <button v-on:click="$emit(\'remove\')">X</button>\
+    </li>\
+  ',
+  props: ['title']
+})
+
+new Vue({
+  el: '#todo-list-example',
+  data: {
+    newTodoText: '',
+    todos: [
+      {
+        id: 1,
+        title: 'Do the dishes',
+      },
+      {
+        id: 2,
+        title: 'Take out the trash',
+      },
+      {
+        id: 3,
+        title: 'Mow the lawn'
+      }
+    ],
+    nextTodoId: 4
+  },
+  methods: {
+    addNewTodo: function () {
+      this.todos.push({
+        id: this.nextTodoId++,
+        title: this.newTodoText
+      })
+      this.newTodoText = ''
+    }
+  }
+})
+</script>
+
+
+  
+  
+    <div class="guide-links">
+      
+        <span>â† <a href="conditional-1.html" tppabs="https://cn.vuejs.org/v2/guide/conditional.html">æ¡ä»¶æ¸²æŸ“</a></span>
+      
+      
+        <span style="float: right;"><a href="events-1.html" tppabs="https://cn.vuejs.org/v2/guide/events.html">äº‹ä»¶å¤„ç†</a> â†’</span>
+      
+    </div>
+  
+  <div class="footer">
+      <script src="monetization.js" tppabs="https://m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div class="bsa-cpc"></div>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
+      target: '.bsa-cpc',
+      align: 'horizontal',
+      disable_css: 'true'
+    });
+      }
+  })();
+</script>
+
+    å‘ç°é”™è¯¯ï¼Ÿæƒ³å‚ä¸ç¼–è¾‘ï¼Ÿ
+    <a href="javascript:if(confirm('https://github.com/vuejs/cn.vuejs.org/blob/master/src/v2/guide/list.md  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='https://github.com/vuejs/cn.vuejs.org/blob/master/src/v2/guide/list.md'" tppabs="https://github.com/vuejs/cn.vuejs.org/blob/master/src/v2/guide/list.md" target="_blank">
+      åœ¨ Github ä¸Šç¼–è¾‘æ­¤é¡µï¼
+    </a>
+  </div>
+</div>
+
+        
+      </div>
+      <script src="smooth-scroll.min.js" tppabs="https://cn.vuejs.org/js/smooth-scroll.min.js"></script>
+    
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <script src="css.escape.js" tppabs="https://cn.vuejs.org/js/css.escape.js"></script>
+    <script src="common.js" tppabs="https://cn.vuejs.org/js/common.js"></script>
+
+    <!-- search -->
+    <link href="docsearch.min.css" tppabs="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="search.css" tppabs="https://cn.vuejs.org/css/search.css">
+    <script src="docsearch.min.js" tppabs="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+    <script>
+    [
+      '#search-query-nav',
+      '#search-query-sidebar',
+      '#search-query-menu'
+    ].forEach(function (selector) {
+      if (!document.querySelector(selector)) return
+      // search index defaults to v2
+      var match = window.location.pathname.match(/^\/(v\d+)/)
+      var version = match ? match[1] : 'v2'
+      docsearch({
+      appId: 'BH4D9OD16A',
+      apiKey: '5638280abff9d207417bb03be05f0b25',
+      indexName: 'vuejs_cn2',
+      inputSelector: selector,
+      algoliaOptions: { facetFilters: ["version:" + version] }
+      })
+    })
+    </script>
+
+    <!-- fastclick -->
+    <script src="fastclick.min.js" tppabs="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+    </script>
+  </body>
+</html>
